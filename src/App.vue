@@ -3,6 +3,7 @@
     <div class="columns is-centered">
       <div class="column">
         <HeaderPage />
+        <HomePage />
       </div>
     </div>
   </main>
@@ -10,11 +11,13 @@
 
 <script lang="ts">
 import HeaderPage from './components/HeaderPage.vue';
+import HomePage from './components/HomePage.vue';
 
 export default
   {
     components: {
-        HeaderPage
+        HeaderPage,
+        HomePage
     }
   };
 </script>

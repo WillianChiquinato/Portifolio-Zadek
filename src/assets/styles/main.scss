@@ -1,0 +1,26 @@
+:root
+{
+    --color-preto: #000;
+    --color-branco: #fff;
+    --color-backgroundBody: #02081F;
+    --color-primaria: #31F2F2;
+    --color-secundaria: #AAF0D1;
+    --color-header-hover: #4bc4ba;
+    --fonte-padrao: "Jua", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body {
+  font-family: var(--fonte-padrao);
+  background-color: var(--color-backgroundBody);
+}

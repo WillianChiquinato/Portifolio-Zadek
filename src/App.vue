@@ -4,20 +4,26 @@
       <div class="column">
         <HeaderPage />
         <HomePage />
+        <HardSoftSkills />
+        <Projetos />
       </div>
     </div>
   </main>
 </template>
 
 <script lang="ts">
+import HardSoftSkills from './components/HardSoftSkills.vue';
 import HeaderPage from './components/HeaderPage.vue';
 import HomePage from './components/HomePage.vue';
+import Projetos from './components/Projetos.vue';
 
 export default
   {
     components: {
-        HeaderPage,
-        HomePage
+      HeaderPage,
+      HomePage,
+      HardSoftSkills,
+      Projetos,
     }
   };
 </script>

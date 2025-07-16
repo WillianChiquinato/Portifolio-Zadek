@@ -5,35 +5,66 @@
         </div>
 
         <div class="ProjetosOptions">
-            <button :class="{ active: isFullStackActive }" class="fullStackBtn" @click="toggleProjects(true)">FullStack</button>
-            <button :class="{ active: !isFullStackActive }" class="gameDevBtn" @click="toggleProjects(false)">GameDev</button>
+            <button :class="{ active: isFullStackActive }" class="fullStackBtn"
+                @click="toggleProjects()">FullStack</button>
+            <button :class="{ active: !isFullStackActive }" class="gameDevBtn"
+                @click="toggleProjects()">GameDev</button>
         </div>
 
         <transition name="fade" mode="out-in">
-            <div v-if="isFullStackActive" class="ProjectContainer" key="fullstack">
-                Cuzinho do fullStack
-            </div>
-            <div v-else class="ProjectContainer" key="gamedev">
-                Cuzinho do gameDev
+            <div class="ProjectContainer" :key="isFullStackActive ? 'fullstack' : 'gamedev'">
+                <div :class="isMobile ? 'mobileProject' : 'desktopProject'">
+                    <ProjectCard v-for="(projeto, index) in currentProjects" :key="projeto.id" :projeto="projeto"
+                        :index="index" :isMobile="isMobile" :saberMaisProject="saberMaisProject" />
+                </div>
             </div>
         </transition>
     </article>
 </template>
 
 <script lang="ts">
+import ProjectCard from '../components/ProjetosCard.vue';
+import projetos from '../data/Projetos';
 
 export default {
     name: 'Projetos',
+    components: {
+        ProjectCard
+    },
     data() {
         return {
             isFullStackActive: true,
+            isMobile: window.innerWidth <= 1100,
+            saberMaisProject: 'Clique para saber mais --->',
+            listaProjetos: projetos
         };
+    },
+    computed: {
+        fullStackProjects() {
+            return this.listaProjetos.slice(7, 11);
+        },
+        gameDevProjects() {
+            return this.listaProjetos.slice(0, 7);
+        },
+        currentProjects() {
+            return this.isFullStackActive ? this.fullStackProjects : this.gameDevProjects;
+        }
     },
     methods: {
         toggleProjects() {
             this.isFullStackActive = !this.isFullStackActive;
         },
+        handleResize() {
+            this.isMobile = window.innerWidth <= 1100;
+        }
     },
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
 };
 </script>
 
@@ -101,11 +132,6 @@ export default {
         color: var(--color-primaria);
         border: solid 0.8px var(--color-primaria);
     }
-}
-
-.ProjectContainer {
-    width: 500px;
-    height: 400px;
 }
 
 .fade-enter-active,

@@ -6,13 +6,13 @@
             <h2>{{ projeto.name }}</h2>
             <h5>{{ projeto.status }}</h5>
             <span class="mobileDescription">{{ projeto.descricao }}</span>
-            <button class="saberMaisProjectMobile">{{ saberMaisProject }}</button>
+            <button class="saberMaisProjectMobile" @click="openModal">{{ saberMaisProject }}</button>
         </div>
 
         <template v-else>
             <h2 :class="{ smallFont: index === 1 || index === 2 }">{{ projeto.name }}</h2>
             <h5>{{ projeto.status }}</h5>
-            <button class="saberMaisProject">{{ saberMaisProject }}</button>
+            <button class="saberMaisProject" @click="openModal">{{ saberMaisProject }}</button>
         </template>
     </div>
 </template>
@@ -36,6 +36,13 @@ export default {
         saberMaisProject: {
             type: String,
             required: true
+        }
+    },
+    emits: ['openModal'],
+    methods: {
+        openModal() {
+            this.$emit('openModal', this.projeto);
+            console.log(`Abrindo modal para o projeto: ${this.projeto.name} com ID ${this.projeto.id}`); // Debugging log
         }
     }
 };

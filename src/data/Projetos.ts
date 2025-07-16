@@ -31,7 +31,7 @@ const projetos: Projeto[] = [
         name: 'Qubyte - SubstratoStation',
         status: 'Em Desenvolvimento',
         image: Qubyte,
-        descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”...'
+        descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     },
     {
         id: 3,
@@ -97,5 +97,7 @@ const projetos: Projeto[] = [
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     }
 ];
+
+//Espaço invisivel: ㅤ <--
 
 export default projetos;

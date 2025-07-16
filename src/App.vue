@@ -6,12 +6,14 @@
         <HomePage />
         <HardSoftSkills />
         <Projetos />
+        <Footer />
       </div>
     </div>
   </main>
 </template>
 
 <script lang="ts">
+import Footer from './components/Footer.vue';
 import HardSoftSkills from './components/HardSoftSkills.vue';
 import HeaderPage from './components/HeaderPage.vue';
 import HomePage from './components/HomePage.vue';
@@ -24,6 +26,7 @@ export default
       HomePage,
       HardSoftSkills,
       Projetos,
+      Footer
     }
   };
 </script>

@@ -2,12 +2,29 @@
 {
     --color-preto: #000;
     --color-branco: #fff;
+    --color-cinza: #b1b1b1;
     --color-backgroundBody: #02081F;
     --color-primaria: #31F2F2;
     --color-secundaria: #AAF0D1;
-    --color-header-hover: #4bc4ba;
+    --color-header-hover: #1f8063;
     --fonte-padrao: "Jua", sans-serif;
     --color-FundoContainerProject: #010616;
+    --color-circulo: rgb(0, 255, 136);
+    --color-circulo-bg: #5e5e5e;
+}
+
+.darkMode {
+  --color-preto: #b9b9b9;
+  --color-branco: #080808;
+  --color-cinza: #353535;
+  --color-backgroundBody: #dbdbdb;
+  --color-primaria: #162d58;
+  --color-secundaria: #182229;
+  --color-header-hover: #27312e;
+  --fonte-padrao: "Jua", sans-serif;
+  --color-FundoContainerProject: #bebebe;
+  --color-circulo: rgb(0, 75, 161);
+  --color-circulo-bg: #8f8f8f;
 }
 
 * {
@@ -24,4 +41,5 @@ html {
 body {
   font-family: var(--fonte-padrao);
   background-color: var(--color-backgroundBody);
+  transition: 0.4s;
 }

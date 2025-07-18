@@ -160,7 +160,7 @@ export default {
     .HardSubtitle {
         padding-top: 2rem;
         font-size: clamp(1rem, 1.3vw, 1.6rem);
-        color: var(--color-text-secondary);
+        color: var(--color-cinza);
     }
 }
 
@@ -222,11 +222,11 @@ export default {
         }
 
         .progress-ring-circle-base {
-            stroke: #5e5e5e;
+            stroke: var(--color-circulo-bg);
         }
 
         .progress-ring-circle {
-            stroke: rgb(0, 255, 136);
+            stroke: var(--color-circulo);
         }
 
         .progress-image {

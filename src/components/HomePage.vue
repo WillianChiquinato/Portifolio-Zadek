@@ -32,25 +32,12 @@
                 </iframe>
 
                 <div class="iconesRedesSociais is-flex is-justify-content-center is-align-items-center">
-                    <a href="">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="">
-                        <i class="fab fa-instagram"></i>
+                    <a v-for="(RedesSociais, index) in RedesSociaisValores" :key="index" :href="RedesSociais.link">
+                        <i :class="RedesSociais.icon"></i>
                     </a>
                 </div>
 
-                <div
-                    class="darkModeContent is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-                    <span>DarkMode</span>
-                    <label class="switch">
-                        <input type="checkbox" id="darkModeToggle">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
+                <DarkMode />
 
                 <div class="mobile-only">
                     <div class="btnContextText">
@@ -67,10 +54,29 @@
 </template>
 
 <script lang="ts">
-export default {
-    props:
-    {
+import DarkMode from '../components/DarkMode.vue';
 
+export default {
+    data() {
+        return {
+            RedesSociaisValores: [
+                {
+                    icon: "fab fa-github",
+                    link: "https://github.com/SeuPerfil"
+                },
+                {
+                    icon: "fab fa-linkedin",
+                    link: "https://linkedin.com/in/SeuPerfil"
+                },
+                {
+                    icon: "fab fa-instagram",
+                    link: "https://instagram.com/SeuPerfil"
+                }
+            ]
+        }
+    },
+    components: {
+        DarkMode,
     }
 }
 </script>
@@ -96,7 +102,7 @@ export default {
 
             span {
                 font-size: clamp(1.2rem, 1.5vw, 1.8rem);
-                color: var(--color-text-secondary);
+                color: var(--color-cinza);
             }
 
             p {
@@ -186,63 +192,6 @@ export default {
 
             a i:hover {
                 color: #0077b5;
-            }
-        }
-
-        .darkModeContent {
-            margin-top: 2rem;
-
-            span {
-                color: var(--color-secundaria);
-            }
-
-            .switch {
-                position: relative;
-                display: inline-block;
-                width: 120px;
-                height: 50px;
-
-                input {
-                    opacity: 0;
-                    width: 0;
-                    height: 0;
-                }
-
-                .slider {
-                    position: absolute;
-                    cursor: pointer;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background-color: #000000;
-                    border: solid 1px var(--color-branco);
-                    transition: .4s;
-
-                    &.round {
-                        border-radius: 30px;
-
-                        &:before {
-                            position: absolute;
-                            content: "";
-                            height: 40px;
-                            width: 40px;
-                            left: 4px;
-                            bottom: 4px;
-                            background-color: rgb(255, 255, 255);
-                            border-radius: 50%;
-                            transition: .4s;
-                        }
-                    }
-                }
-
-                input:checked+.slider {
-                    background-color: var(--color-primaria);
-                }
-
-                input:checked+.slider.round::before {
-                    transform: translateX(70px);
-                }
             }
         }
 

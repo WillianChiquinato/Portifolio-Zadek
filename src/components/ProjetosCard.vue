@@ -6,20 +6,28 @@
             <h2>{{ projeto.name }}</h2>
             <h5>{{ projeto.status }}</h5>
             <span class="mobileDescription">{{ projeto.descricao }}</span>
-            <button class="saberMaisProjectMobile" @click="openModal">{{ saberMaisProject }}</button>
+            <button class="saberMaisProjectMobile" @click="openModal(projeto)">Clique para saber mais</button>
         </div>
 
         <template v-else>
             <h2 :class="{ smallFont: index === 1 || index === 2 }">{{ projeto.name }}</h2>
             <h5>{{ projeto.status }}</h5>
-            <button class="saberMaisProject" @click="openModal">{{ saberMaisProject }}</button>
+            <button class="saberMaisProject" @click="openModal(projeto)">Clique para saber mais</button>
         </template>
     </div>
+
+    <ModalProjetos v-if="isOpen" v-model:isOpen="isOpen" :projetoId="modalDataId" @close="closeModal" />
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent, ref } from 'vue';
+import ModalProjetos from './ModalProjetos.vue';
+
+export default defineComponent({
     name: 'ProjectCard',
+    components: {
+        ModalProjetos
+    },
     props: {
         projeto: {
             type: Object,
@@ -32,20 +40,24 @@ export default {
         isMobile: {
             type: Boolean,
             required: true
-        },
-        saberMaisProject: {
-            type: String,
-            required: true
         }
     },
-    emits: ['openModal'],
+    data() {
+        return {
+            isOpen: false,
+            modalDataId: -1,
+        };
+    },
     methods: {
-        openModal() {
-            this.$emit('openModal', this.projeto);
-            console.log(`Abrindo modal para o projeto: ${this.projeto.name} com ID ${this.projeto.id}`); // Debugging log
+        openModal(projeto: any) {
+            this.modalDataId = projeto.id; 
+            this.isOpen = true;
+        },
+        closeModal() {
+            this.isOpen = false;
         }
     }
-};
+});
 </script>
 
 <style lang="scss">
@@ -96,6 +108,7 @@ export default {
 
             h5 {
                 margin-bottom: 2rem;
+                color: var(--color-cinza);
             }
 
             .mobileDescription {
@@ -138,6 +151,7 @@ export default {
 
                 h5 {
                     margin-bottom: 1.5rem;
+                    color: var(--color-cinza);
                 }
 
                 .mobileDescription {
@@ -201,6 +215,10 @@ export default {
             font-size: clamp(1.5rem, 1.7vw, 2rem);
             color: var(--color-secundaria);
             margin: 0.5rem 1rem 0rem 1rem;
+        }
+
+        h5 {
+            color: var(--color-cinza);
         }
 
         .saberMaisProject {

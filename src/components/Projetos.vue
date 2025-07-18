@@ -15,7 +15,7 @@
             <div class="ProjectContainer" :key="isFullStackActive ? 'fullstack' : 'gamedev'">
                 <div :class="isMobile ? 'mobileProject' : 'desktopProject'">
                     <ProjectCard v-for="(projeto, index) in currentProjects" :key="projeto.id" :projeto="projeto"
-                        :index="index" :isMobile="isMobile" :saberMaisProject="saberMaisProject" />
+                        :index="index" :isMobile="isMobile" />
                 </div>
             </div>
         </transition>
@@ -35,7 +35,6 @@ export default {
         return {
             isFullStackActive: true,
             isMobile: window.innerWidth <= 1100,
-            saberMaisProject: 'Clique para saber mais --->',
             listaProjetos: projetos
         };
     },

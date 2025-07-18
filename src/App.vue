@@ -17,8 +17,9 @@ import Footer from './components/Footer.vue';
 import HardSoftSkills from './components/HardSoftSkills.vue';
 import HeaderPage from './components/HeaderPage.vue';
 import HomePage from './components/HomePage.vue';
+import ModalProjetos from './components/ModalProjetos.vue';
 import Projetos from './components/Projetos.vue';
-
+ 
 export default
   {
     components: {
@@ -26,7 +27,8 @@ export default
       HomePage,
       HardSoftSkills,
       Projetos,
-      Footer
+      Footer,
+      ModalProjetos
     }
   };
 </script>

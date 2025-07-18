@@ -31,7 +31,7 @@ export default {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #02081F;
+    background-color: var(--color-backgroundBody);
     padding: 0 3rem;
 
     .headerContent {
@@ -39,7 +39,7 @@ export default {
         justify-content: space-around;
         align-items: center;
         height: 6rem;
-        border-bottom: solid 1px #dee2e6;
+        border-bottom: solid 1px var(--color-branco);
 
         .headerLogo img {
             width: 70%;

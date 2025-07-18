@@ -21,7 +21,7 @@ export default {
 {
     width: 100%;
     height: auto;
-    background-color: var(--color-preto);
+    background-color: var(--color-backgroundBody);
     
     .footerContent{
         display: flex;
@@ -53,10 +53,12 @@ export default {
 
         h6 {
             font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--color-cinza);
         }
 
         span {
             font-size: clamp(0.8rem, 1.5vw, 1rem);
+            color: var(--color-cinza);
         }
     }
 }

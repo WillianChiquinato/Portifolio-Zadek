@@ -1,6 +1,6 @@
 <template>
-    <div id="fade" :class="{ hide: !isOpen }"></div>
-    <div id="modal" :class="{ hide: !isOpen }">
+    <div id="fade" :class="{ show: isOpen }"></div>
+    <div id="modal" :class="{ show: isOpen }">
         <div class="modal-header">
             <button class="close-button" @click="closeModal">
                 <img src="../assets/imagens/FecharModal.png" alt="Fechar Modal">
@@ -49,12 +49,11 @@
 
             <h2 class="modal-title">Envolvidos no projeto</h2>
             <div class="envolvidos-container">
-                <div class="envolvidos-content">
-                    <img :src="projeto?.envolvidosImage" alt="Envolvido" class="fotoEnvolvidos">
-                    <h4 class="titulo-envolvidos">{{ projeto?.envolvidosName }}</h4>
+                <div v-for="envolvido in projeto?.envolvidos" :key="envolvido.id" class="envolvidos-content">
+                    <img :src="envolvido.image" alt="Envolvido" class="fotoEnvolvidos">
+                    <h4 class="titulo-envolvidos">{{ envolvido.name }}</h4>
                     <div class="envolvidos-link-container">
-                        <a :href="projeto?.envolvidosLink" class="envolvidos-link" target="_blank">{{
-                            projeto?.envolvidosLink }}</a>
+                        <a :href="envolvido.link" class="envolvidos-link" target="_blank">{{ envolvido.link }}</a>
                     </div>
                 </div>
             </div>
@@ -65,6 +64,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import fotoTestePreta from '@/assets/imagens/FundoPreto.png';
+import Projetos from './Projetos.vue';
 
 interface Modal {
     id: number;
@@ -95,9 +95,14 @@ export default defineComponent({
                     descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 2,
@@ -105,9 +110,20 @@ export default defineComponent({
                     descricao: 'Portifólio desenvolvido em Vue.js, com o objetivo de apresentar meus projetos e habilidades.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 3,
@@ -115,9 +131,20 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto X.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 4,
@@ -125,9 +152,20 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto Y.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 5,
@@ -135,9 +173,20 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto Z.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 6,
@@ -145,9 +194,20 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto A.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 7,
@@ -155,9 +215,20 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto B.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 8,
@@ -165,9 +236,14 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto C.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 9,
@@ -175,9 +251,14 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto D.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        }
+                    ]
                 },
                 {
                     id: 10,
@@ -185,9 +266,20 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto E.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 },
                 {
                     id: 11,
@@ -195,9 +287,20 @@ export default defineComponent({
                     descricao: 'Descrição do Projeto F.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidosImage: fotoTestePreta,
-                    envolvidosName: 'ChatBot Dart',
-                    envolvidosLink: 'https://www.youtube.com/?themeRefresh=1'
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor do ChatBot em Dart',
+                            image: fotoTestePreta,
+                            link: 'https://www.youtube.com/?themeRefresh=1'
+                        },
+                        {
+                            id: 2,
+                            name: 'Designer Gráfico',
+                            image: fotoTestePreta,
+                            link: 'https://www.behance.net/'
+                        }
+                    ]
                 }
             ],
         }
@@ -246,21 +349,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-#fade,
-#modal {
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-}
-
-#fade.hide,
-#modal.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
 #fade {
     position: fixed;
     top: 0;
@@ -269,6 +357,14 @@ export default defineComponent({
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 11;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#fade.show {
+    opacity: 0.6;
+    visibility: visible;
 }
 
 #modal {
@@ -284,11 +380,45 @@ export default defineComponent({
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translateY(70px);
     padding: 12px 20px;
     border: solid 2px #000000;
     border-radius: 1.3rem;
     z-index: 12;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+#modal.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) translateY(0);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(70px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0);
+    }
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(70px);
+    }
 }
 
 .modal-header {
@@ -499,6 +629,10 @@ export default defineComponent({
             color: var(--color-primaria);
             text-align: center;
             margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0rem 1rem;
         }
 
         .envolvidos-link-container {

@@ -1,6 +1,6 @@
 <template>
     <div id="fade" :class="{ show: isOpen }"></div>
-    <div id="modal" :class="{ show: isOpen }">
+    <div id="modal" ref="modal" v-if="internalShow" :class="{ show: isOpen }">
         <div class="modal-header">
             <button class="close-button" @click="closeModal">
                 <img src="../assets/imagens/FecharModal.png" alt="Fechar Modal">
@@ -64,22 +64,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import fotoTestePreta from '@/assets/imagens/FundoPreto.png';
-import Projetos from './Projetos.vue';
-
-interface Modal {
-    id: number;
-    nome: string;
-    descricao: string;
-    imagens: string[];
-    video: string;
-    envolvidosImage: string;
-    envolvidosName: string;
-    envolvidosLink: string;
-}
 
 export default defineComponent({
     data() {
         return {
+            internalShow: false,
             envolvidos: [
                 {
                     id: 1,
@@ -324,19 +313,17 @@ export default defineComponent({
 
             return found;
         },
-        navegacaoAutomatica() {
-            const radios = document.querySelectorAll('.navigationAuto div');
-            radios.forEach((radio, index) => {
-                radio.addEventListener('click', () => {
-                    this.changeSlide(index);
-                });
-            });
-        }
     },
     emits: ['close'],
     methods: {
         closeModal() {
-            this.$emit('close');
+            const modal = this.$refs.modal as HTMLElement;
+            modal.classList.add('fade-out');
+            setTimeout(() => {
+                this.$emit('close');
+                this.internalShow = false;
+                modal.classList.remove('fade-out');
+            }, 150);
         },
         changeSlide(index: number) {
             const slides = document.querySelectorAll('.slider-box-image');
@@ -344,6 +331,13 @@ export default defineComponent({
                 slide.classList.toggle('primeiroImagem', i === index);
             });
         }
+    },
+    mounted() {
+        this.internalShow = this.isOpen;
+        setInterval(() => {
+            console.log('Teste ', this.internalShow ? 'aberto' : 'fechado');
+            console.log('Modal ', this.isOpen ? 'aberto' : 'fechado');
+        }, 1000);
     }
 });
 </script>
@@ -356,10 +350,10 @@ export default defineComponent({
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 11;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 10000;
 }
 
 #fade.show {
@@ -375,49 +369,62 @@ export default defineComponent({
     background-color: #AFEFEF;
     width: 700px;
     height: 800px;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 35%;
+    max-height: 85%;
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) translateY(70px);
+    transform: translate(-50%, -50%);
     padding: 12px 20px;
     border: solid 2px #000000;
     border-radius: 1.3rem;
-    z-index: 12;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
-    animation: fadeInUp 0.5s ease-out forwards;
+    z-index: 10001;
+
+    @media (max-width: 1025px) {
+        max-width: 50%;
+        max-height: 80%;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 70%;
+        max-height: 80%;
+    }
 }
 
 #modal.show {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) translateY(0);
+    animation: fadeInUp 0.25s ease-out forwards;
+}
+
+#modal.fade-out {
+    animation: fadeOutUp 0.15s ease-out forwards;
 }
 
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translate(-50%, -50%) translateY(70px);
+        transform: translate(-50%, -60%) scale(0.4);
     }
 
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%) translateY(0);
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 
 @keyframes fadeOutUp {
     0% {
         opacity: 1;
-        transform: translate(-50%, -50%) translateY(0px);
+        transform: translate(-50%, -50%) scale(1);
     }
 
     100% {
         opacity: 0;
-        transform: translate(-50%, -50%) translateY(70px);
+        transform: translate(-50%, -60%) scale(0.2);
     }
 }
 
@@ -426,22 +433,18 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
 
     .close-button {
         position: absolute;
-        top: -3rem;
-        left: -3rem;
+        top: -1rem;
+        left: -1rem;
         background-color: #AFEFEF;
         text-decoration: none;
-        padding: 10px 20px;
         color: aliceblue;
         border: none;
-        border-radius: 10rem;
+        border-radius: 50%;
         cursor: pointer;
-        opacity: 0.9;
-        transition: 0.4s;
+        transition: 0.3s;
 
         &:hover {
             scale: 1.1;
@@ -449,10 +452,9 @@ export default defineComponent({
     }
 
     img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         cursor: pointer;
-        border-radius: 2rem;
     }
 }
 
@@ -490,11 +492,9 @@ export default defineComponent({
 
 /* Css do slide carrossel */
 .slider {
-    /* ele centraliza */
     margin: 0 auto;
     max-width: 100%;
     height: auto;
-    /* ele bloqueia qualquer formatação em outro lugar tipo mobile e etc */
     padding: 0 !important;
     border-bottom: solid 2px #000000;
     overflow: hidden;

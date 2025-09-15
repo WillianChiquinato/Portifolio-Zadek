@@ -27,7 +27,7 @@ import ProjectCard from '../components/ProjetosCard.vue';
 import projetos from '../data/Projetos';
 
 export default {
-    name: 'Projetos',
+    name: 'ProjetosSection',
     components: {
         ProjectCard
     },
@@ -146,5 +146,20 @@ export default {
 .fade-enter-to,
 .fade-leave-from {
     opacity: 1;
+}
+
+@media (max-width: 1680px) {
+    .ProjetosContainer {
+        margin-top: 2rem;
+
+        .HardTitle {
+            font-size: clamp(2.5rem, 2vw, 3.5rem);
+        }
+    }
+
+    .ProjetosOptions {
+        font-size: clamp(1rem, 1.4vw, 1.5rem);
+        padding-top: 0.5rem;
+    }
 }
 </style>

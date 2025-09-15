@@ -54,12 +54,29 @@ export default {
             a {
                 color: var(--color-secundaria);
                 text-decoration: none;
-                transition: 0.5s;
+                transition: 0.3s;
 
                 &:hover {
                     color: var(--color-header-hover);
-                    scale: 1.4;
+                    scale: 1.2;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 1680px) {
+    .headerContainer {
+        .headerContent {
+            height: 4.5rem;
+
+            .headerLogo img {
+                width: 50%;
+            }
+
+            .headerLinks {
+                gap: 10rem;
+                font-size: clamp(0.6rem, 1.3vw, 1.5rem);
             }
         }
     }

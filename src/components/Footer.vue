@@ -11,25 +11,24 @@
 
 <script lang="ts">
 export default {
-    name: 'Footer',
+    name: 'FooterProject',
     components: {}
 }
 </script>
 
 <style lang="scss" scoped>
-.footerContainer
-{
+.footerContainer {
     width: 100%;
     height: auto;
     background-color: var(--color-backgroundBody);
-    
-    .footerContent{
+
+    .footerContent {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         padding: 3rem;
-        
+
         img {
             width: clamp(350px, 40vw, 600px);
             height: auto;
@@ -38,15 +37,16 @@ export default {
         button {
             background-color: var(--color-primaria);
             color: var(--color-preto);
-            font-size: clamp(2rem, 3vw, 3rem);        
+            font-size: clamp(2rem, 3vw, 3rem);
             padding: clamp(0.5rem, 1vw, 1rem) clamp(2rem, 4vw, 4rem);
             border-radius: 2rem;
             margin: 1rem 0;
-            transition: 0.5s;
+            transition: 0.3s;
 
             &:hover {
-                background-color: var(--color-secundaria);
-                color: var(--color-preto);
+                background-color: var(--color-backgroundBody);
+                border: solid 1px var(--color-primaria);
+                color: var(--color-branco);
                 scale: 1.1;
             }
         }
@@ -59,6 +59,30 @@ export default {
         span {
             font-size: clamp(0.8rem, 1.5vw, 1rem);
             color: var(--color-cinza);
+        }
+    }
+}
+
+@media (max-width: 1680px) {
+    .footerContainer {
+        .footerContent {
+            img {
+                width: clamp(200px, 40vw, 400px);
+            }
+
+            button {
+                font-size: clamp(1rem, 2vw, 2rem);
+                padding: clamp(0.5rem, 1vw, 1rem) clamp(2rem, 4vw, 4rem);
+                border-radius: 1rem;
+            }
+
+            h6 {
+                font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+            }
+
+            span {
+                font-size: clamp(0.5rem, 1vw, 0.8rem);
+            }
         }
     }
 }

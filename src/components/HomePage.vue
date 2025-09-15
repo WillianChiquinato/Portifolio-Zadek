@@ -25,14 +25,13 @@
             </div>
 
             <div class="contentVideo is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-                <!-- colocar um video da web -->
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
 
                 <div class="iconesRedesSociais is-flex is-justify-content-center is-align-items-center">
-                    <a v-for="(RedesSociais, index) in RedesSociaisValores" :key="index" :href="RedesSociais.link">
+                    <a v-for="(RedesSociais, index) in RedesSociaisValores" :key="index" :href="RedesSociais.link" target="_blank" rel="noopener noreferrer">
                         <i :class="RedesSociais.icon"></i>
                     </a>
                 </div>
@@ -217,6 +216,66 @@ export default {
 
 .imagemResponsivoZadek {
     display: none;
+}
+
+@media (max-width: 1680px) {
+    .homePage {
+        margin-top: 6.3rem;
+
+        .contentHomePage {
+            .contenText {
+                h2 {
+                    font-size: clamp(2.5rem, 2vw, 3.5rem);
+                }
+
+                span {
+                    font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+                }
+
+                p {
+                    font-size: clamp(0.9rem, 1vw, 1.2rem);
+                    margin-top: 2rem;
+                }
+            }
+
+            .DownloadCV {
+                font-size: clamp(1.5rem, 2vw, 2.3rem);
+                padding: 0.8rem 2rem;
+            }
+
+            .contexTextIconeMap {
+                gap: 0.8rem;
+                margin: 0rem 0rem 0rem 7.5rem;
+
+                i {
+                    font-size: 1.2rem;
+                }
+
+                span {
+                    font-size: 0.7rem;
+                    margin-top: 0.4rem;
+                }
+            }
+        }
+
+        .contentVideo {
+            width: 100%;
+            padding-bottom: 1rem;
+
+            iframe {
+                width: clamp(27rem, 37vw, 40rem);
+            }
+
+            .iconesRedesSociais {
+                gap: 2rem;
+                padding-top: 1.2rem;
+
+                a i {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 1230px) {

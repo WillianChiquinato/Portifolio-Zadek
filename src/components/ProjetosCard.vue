@@ -20,11 +20,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 import ModalProjetos from './ModalProjetos.vue';
+import { Motion } from '@motionone/vue';
 
 export default defineComponent({
     name: 'ProjectCard',
+    directives: {
+        motion: Motion
+    },
     components: {
         ModalProjetos
     },
@@ -49,8 +53,8 @@ export default defineComponent({
         };
     },
     methods: {
-        openModal(projeto: any) {
-            this.modalDataId = projeto.id; 
+        openModal(projeto: Record<string, unknown>) {
+            this.modalDataId = projeto.id as number;
             this.isOpen = true;
         },
         closeModal() {
@@ -242,6 +246,31 @@ export default defineComponent({
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+    }
+}
+
+@media (max-width: 1680px) {
+    .ProjectContainer {
+        .projectContent {
+            width: clamp(210px, 310px, 410px);
+            border-radius: 0.6rem;
+
+            img {
+                width: 100%;
+                height: 450px;
+                object-fit: cover;
+                border-bottom: solid 0.2px var(--color-branco);
+                border-radius: 0.6rem 0.6rem 0 0;
+            }
+
+            h2 {
+                font-size: clamp(1.2rem, 1.5vw, 1.7rem);
+            }
+
+            .saberMaisProject {
+                font-size: clamp(1.1rem, 1.2vw, 1.5rem);
+            }
         }
     }
 }

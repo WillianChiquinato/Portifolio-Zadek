@@ -85,4 +85,28 @@ export default {
         }
     }
 }
+
+@media (max-width: 1680px) {
+    .darkModeContent {
+        margin-top: 1.2rem;
+
+        .switch {
+            width: 100px;
+            height: 40px;
+
+            .slider {
+                &.round {
+                    &:before {
+                        height: 30px;
+                        width: 30px;
+                    }
+                }
+            }
+
+            input:checked+.slider.round::before {
+                transform: translateX(60px);
+            }
+        }
+    }
+}
 </style>

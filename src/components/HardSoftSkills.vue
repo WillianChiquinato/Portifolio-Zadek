@@ -13,7 +13,7 @@
                         class="contentHardSkills is-flex is-flex-direction-column is-align-items-center">
                         <span class="NomeContent">{{ circle.nome }}</span>
                         <div class="circle">
-                            <svg class="progress-ring" width="216" height="216">
+                            <svg class="progress-ring">
                                 <!-- Círculo de fundo -->
                                 <circle class="progress-ring-circle-base" stroke="#e6e6e6" stroke-width="12"
                                     fill="transparent" r="94" cx="108" cy="108" />
@@ -35,7 +35,7 @@
                         class="contentHardSkills is-flex is-flex-direction-column is-align-items-center">
                         <span class="NomeContent">{{ circle.nome }}</span>
                         <div class="circle">
-                            <svg class="progress-ring" width="216" height="216">
+                            <svg class="progress-ring">
                                 <!-- Círculo de fundo -->
                                 <circle class="progress-ring-circle-base" stroke="#e6e6e6" stroke-width="12"
                                     fill="transparent" r="94" cx="108" cy="108" />
@@ -115,30 +115,67 @@ export default {
         this.circlesGameDev.forEach((circle, index) => {
             this.setCirculoGameDev(index, circle.numero);
         });
+
+        //cada vez que trocar o tamanho da tela atualiza os circulos.
+        window.addEventListener('resize', () => {
+            this.circles.forEach((circle, index) => {
+                this.setCirculoFullStack(index, circle.numero);
+            });
+
+            this.circlesGameDev.forEach((circle, index) => {
+                this.setCirculoGameDev(index, circle.numero);
+            });
+        });
     },
     methods: {
         setCirculoFullStack(index: number, percent: number) {
-            const ring = this.$refs.progressRingFullStack[index] as SVGCircleElement;
-            const text = this.$refs.progressTextFullStack[index] as HTMLElement;
+            const rings = this.$refs.progressRingFullStack as unknown as SVGCircleElement[];
+            const texts = this.$refs.progressTextFullStack as unknown as HTMLElement[];
+            const ring = rings[index];
+            const text = texts[index];
 
             if (!ring || !text) return;
 
-            const offset = this.circumference - (percent / 100) * this.circumference;
+            const svg = ring.closest('svg');
+            if (!svg) return;
 
-            ring.style.strokeDasharray = `${this.circumference} ${this.circumference}`;
+            const svgSize = Math.min(svg.clientWidth, svg.clientHeight);
+            const strokeWidth = parseFloat(ring.getAttribute('stroke-width') || '12');
+            const radius = (svgSize - strokeWidth) / 2;
+
+            // circunferência correta.
+            const circumference = 1.9 * Math.PI * radius;
+
+            const offset = circumference - (percent / 100) * circumference;
+
+            ring.style.strokeDasharray = `${circumference} ${circumference}`;
             ring.style.strokeDashoffset = `${offset}`;
         },
 
         setCirculoGameDev(index: number, percent: number) {
-            const ring = this.$refs.progressRingGameDev[index] as SVGCircleElement;
-            const text = this.$refs.progressTextGameDev[index] as HTMLElement;
+            const rings = this.$refs.progressRingGameDev as unknown as SVGCircleElement[];
+            const texts = this.$refs.progressTextGameDev as unknown as HTMLElement[];
+            const ring = rings[index];
+            const text = texts[index];
 
             if (!ring || !text) return;
 
-            const offset = this.circumference - (percent / 100) * this.circumference;
+            const svg = ring.closest('svg');
+            if (!svg) return;
 
-            ring.style.strokeDasharray = `${this.circumference} ${this.circumference}`;
+            const svgSize = Math.min(svg.clientWidth, svg.clientHeight);
+            const strokeWidth = parseFloat(ring.getAttribute('stroke-width') || '12');
+            const radius = (svgSize - strokeWidth) / 2;
+
+            // circunferência correta.
+            const circumference = 1.9 * Math.PI * radius;
+
+            const offset = circumference - (percent / 100) * circumference;
+
+            ring.style.strokeDasharray = `${circumference} ${circumference}`;
             ring.style.strokeDashoffset = `${offset}`;
+
+            text.innerText = `${percent}%`;
         },
     },
 }
@@ -212,6 +249,8 @@ export default {
         }
 
         .progress-ring {
+            width: 216px;
+            height: 216px;
             transform: rotate(-90deg);
         }
 
@@ -246,6 +285,80 @@ export default {
             font-size: 36px;
             font-weight: bold;
             color: var(--color-secundaria);
+        }
+    }
+}
+
+@media (max-width: 1680px) {
+    .HardSoftSkills {
+        margin-top: 2rem;
+
+        .HardTitle {
+            font-size: clamp(2.5rem, 2vw, 3.5rem);
+        }
+
+        .HardSubtitle {
+            font-size: clamp(0.8rem, 1vw, 1.3rem);
+        }
+    }
+
+    .HardSkillsContainer {
+        margin-top: 1.4rem;
+
+        .gridContent {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.7rem;
+        }
+
+        .FullStackContainer {
+            margin-bottom: 2rem;
+
+            .TitleFullStack {
+                font-size: clamp(1.7rem, 2vw, 2.2rem);
+                margin: 2rem 0rem;
+                text-underline-offset: 0.5rem;
+            }
+
+            .NomeContent {
+                font-size: clamp(1.3rem, 1.5vw, 2rem);
+            }
+
+            .circle {
+                width: 160px;
+                height: 160px;
+                margin: 1px 15px 15px 15px;
+            }
+
+            .progress-ring {
+                width: 160px;
+                height: 160px;
+            }
+
+            .progress-ring-circle-base {
+                r: 70;
+                cx: 80;
+                cy: 80;
+                stroke: var(--color-circulo-bg);
+            }
+
+            .progress-ring-circle {
+                stroke-dasharray: 439.82;
+                stroke-dashoffset: 132;
+                r: 70;
+                cx: 80;
+                cy: 80;
+            }
+
+            .progress-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .progress-text {
+                top: 65%;
+                left: 42%;
+                font-size: 1.2rem;
+            }
         }
     }
 }

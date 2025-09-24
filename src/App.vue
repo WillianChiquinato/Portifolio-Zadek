@@ -1,6 +1,7 @@
 <template>
   <main class="container is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
-    <div class="columns is-centered">
+    <LoadingScreen :visible="loading" />
+    <div v-if="!loading" class="columns is-centered">
       <div class="column">
         <HeaderPage />
         <HomePage />
@@ -14,6 +15,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import LoadingScreen from './components/LoadingScreen.vue';
 
 import FooterProject from './components/Footer.vue';
 import HardSoftSkills from './components/HardSoftSkills.vue';
@@ -28,7 +30,19 @@ export default defineComponent({
     HomePage,
     HardSoftSkills,
     Projetos,
-    FooterProject
+    FooterProject,
+
+    LoadingScreen
+  },
+  data() {
+    return {
+      loading: true
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = false
+    }, 3000)
   }
 });
 </script>

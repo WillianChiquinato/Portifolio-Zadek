@@ -1,5 +1,5 @@
 <template>
-    <article class="HardSoftSkills is-flex is-flex-direction-column is-align-items-center" id="skills">
+    <article class="HardSoftSkills is-flex is-flex-direction-column is-align-items-center" id="skills" ref="sectionRef" :class="{ animate: isVisible }">
         <div>
             <h2 class="HardTitle">Hard & Soft Skills</h2>
             <h5 class="HardSubtitle">+Organizado +Criativo +Flexivel +Adaptavel</h5>
@@ -72,6 +72,9 @@ import packageManager from '../assets/Imagens/PackageManagerIcon.png';
 import ia from '../assets/Imagens/IAIcon.png';
 import cplusplus from '../assets/Imagens/CPlusPlusIcon.png';
 
+import { defineComponent, ref } from 'vue'
+import { useIntersection } from '@/composable/intersectionObserver'
+
 const circulosFullStack = [
     { nome: "Node.js", imagem: nodeIcon, numero: 85 },
     { nome: "React.js", imagem: reactIcon, numero: 80 },
@@ -95,7 +98,8 @@ const circulosGameDev = [
     { nome: "C++", imagem: cplusplus, numero: 30 }
 ]
 
-export default {
+export default defineComponent({
+    name: 'HardSoftSkills',
     data() {
         return {
             circles: circulosFullStack,
@@ -178,7 +182,13 @@ export default {
             text.innerText = `${percent}%`;
         },
     },
-}
+    setup() {
+        const sectionRef = ref<HTMLElement | null>(null)
+        const isVisible = useIntersection(sectionRef, { threshold: 0.1 })
+
+        return { sectionRef, isVisible }
+    }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -188,6 +198,14 @@ export default {
     margin-top: 5rem;
     text-align: center;
     border-bottom: solid 0.8px var(--color-branco);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+
+    &.animate {
+        opacity: 1;
+        transform: translateY(10px);
+    }
 
     .HardTitle {
         font-size: clamp(2.7rem, 3vw, 3.5rem);
@@ -198,6 +216,16 @@ export default {
         padding-top: 2rem;
         font-size: clamp(1rem, 1.3vw, 1.6rem);
         color: var(--color-cinza);
+    }
+}
+
+@keyframes progress {
+    0% {
+        stroke-dashoffset: 589.23;
+    }
+
+    100% {
+        stroke-dashoffset: 176.77;
     }
 }
 
@@ -246,6 +274,11 @@ export default {
             margin: 5px 20px 20px 20px;
             text-align: center;
             z-index: 10;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
         }
 
         .progress-ring {
@@ -254,10 +287,11 @@ export default {
             transform: rotate(-90deg);
         }
 
-        .progress-ring-circle {
+        .progress-ring-circle { 
             stroke-dasharray: 589.23;
             stroke-dashoffset: 176.77;
-            transition: stroke-dashoffset 0.5s ease;
+            transition: stroke-dashoffset 1.5s ease;
+            animation: progress 2.5s ease-out forwards;
         }
 
         .progress-ring-circle-base {

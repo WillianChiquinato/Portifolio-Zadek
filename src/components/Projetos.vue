@@ -1,5 +1,5 @@
 <template>
-    <article class="ProjetosContainer is-flex is-flex-direction-column is-align-items-center" id="projects">
+    <article class="ProjetosContainer is-flex is-flex-direction-column is-align-items-center" id="projects" ref="sectionRef" :class="{ animate: isVisible }">
         <div>
             <h2 class="HardTitle">Projects</h2>
         </div>
@@ -23,10 +23,13 @@
 </template>
 
 <script lang="ts">
+import { defineComponent, ref } from 'vue'
 import ProjectCard from '../components/ProjetosCard.vue';
 import projetos from '../data/Projetos';
 
-export default {
+import { useIntersection } from '@/composable/intersectionObserver'
+
+export default defineComponent({
     name: 'ProjetosSection',
     components: {
         ProjectCard
@@ -63,8 +66,14 @@ export default {
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.handleResize);
+    },
+    setup() {
+        const sectionRef = ref<HTMLElement | null>(null)
+        const isVisible = useIntersection(sectionRef, { threshold: 0.3 })
+
+        return { sectionRef, isVisible }
     }
-};
+});
 </script>
 
 <style lang="scss" scoped>
@@ -74,6 +83,14 @@ export default {
     margin-top: 5rem;
     text-align: center;
     border-bottom: solid 0.8px var(--color-branco);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+
+    &.animate {
+        opacity: 1;
+        transform: translateY(10px);
+    }
 
     .HardTitle {
         font-size: clamp(2.7rem, 3vw, 3.5rem);

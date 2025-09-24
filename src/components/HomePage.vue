@@ -1,9 +1,9 @@
 <template>
-    <div class="imagemResponsivoZadek">
+    <div class="imagemResponsivoZadek" ref="sectionRef" :class="{ animate: isVisible }">
         <img src="../assets/LogoZadek.png" alt="Logo" />
     </div>
 
-    <article class="homePage" id="home">
+    <article class="homePage" id="home" ref="sectionRef" :class="{ animate: isVisible }">
         <section class="contentHomePage is-flex is-align-items-center is-justify-content-space-between">
             <div class="contenText is-flex is-flex-direction-column is-align-items-center">
                 <h2 class="contentTextTitle">Full Stack & Game Developer</h2>
@@ -31,7 +31,8 @@
                 </iframe>
 
                 <div class="iconesRedesSociais is-flex is-justify-content-center is-align-items-center">
-                    <a v-for="(RedesSociais, index) in RedesSociaisValores" :key="index" :href="RedesSociais.link" target="_blank" rel="noopener noreferrer">
+                    <a v-for="(RedesSociais, index) in RedesSociaisValores" :key="index" :href="RedesSociais.link"
+                        target="_blank" rel="noopener noreferrer">
                         <i :class="RedesSociais.icon"></i>
                     </a>
                 </div>
@@ -53,31 +54,26 @@
 </template>
 
 <script lang="ts">
-import DarkMode from '../components/DarkMode.vue';
+import { defineComponent, ref } from 'vue'
+import DarkMode from '../components/DarkMode.vue'
+import { useIntersection } from '@/composable/intersectionObserver'
 
-export default {
-    data() {
-        return {
-            RedesSociaisValores: [
-                {
-                    icon: "fab fa-github",
-                    link: "https://github.com/SeuPerfil"
-                },
-                {
-                    icon: "fab fa-linkedin",
-                    link: "https://linkedin.com/in/SeuPerfil"
-                },
-                {
-                    icon: "fab fa-instagram",
-                    link: "https://instagram.com/SeuPerfil"
-                }
-            ]
-        }
-    },
-    components: {
-        DarkMode,
+export default defineComponent({
+    name: 'HomePage',
+    components: { DarkMode },
+    setup() {
+        const sectionRef = ref<HTMLElement | null>(null)
+        const isVisible = useIntersection(sectionRef, { threshold: 0.2 })
+
+        const RedesSociaisValores = [
+            { icon: 'fab fa-github', link: 'https://github.com/SeuPerfil' },
+            { icon: 'fab fa-linkedin', link: 'https://linkedin.com/in/SeuPerfil' },
+            { icon: 'fab fa-instagram', link: 'https://instagram.com/SeuPerfil' }
+        ]
+
+        return { sectionRef, isVisible, RedesSociaisValores }
     }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -87,6 +83,14 @@ export default {
     margin-top: 10rem;
     padding: 2rem;
     border-bottom: solid 1px var(--color-branco);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+
+    &.animate {
+        opacity: 1;
+        transform: translateY(10px);
+    }
 
     .contentHomePage {
         .contenText {

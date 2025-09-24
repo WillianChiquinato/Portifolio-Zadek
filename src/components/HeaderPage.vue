@@ -1,5 +1,5 @@
 <template>
-    <header class="headerContainer">
+    <header class="headerContainer" :class="{ animate: isVisible }">
         <nav class="headerContent">
             <div class="headerLogo">
                 <img src="../assets/LogoZadek.png" alt="Logo" />
@@ -15,13 +15,21 @@
 </template>
 
 <script lang="ts">
-export default {
-    props:
-    {
+import { defineComponent } from 'vue'
 
+export default defineComponent({
+    name: 'HeaderPage',
+    data() {
+        return {
+            isVisible: false,
+        }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.isVisible = true
+        }, 800)
     }
-}
-
+})
 </script>
 
 <style lang="scss" scoped>
@@ -32,7 +40,15 @@ export default {
     width: 100%;
     z-index: 1000;
     background-color: var(--color-backgroundBody);
+    transform: translateY(-100px);
     padding: 0 3rem;
+    transition: all 0.5s ease-in-out;
+
+    &.animate {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        transform: translateY(0px);
+    }
 
     .headerContent {
         display: flex;

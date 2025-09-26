@@ -206,6 +206,12 @@ export default defineComponent({
         height: auto;
         border: solid 0.8px var(--color-branco);
         border-radius: 1rem;
+        transition: 0.3s;
+
+        &:hover {
+            transform: translateY(-4px);
+            scale: 1.02;
+        }
 
         img {
             width: 100%;

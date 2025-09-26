@@ -5,8 +5,8 @@ import Folklore from '@/assets/imagens/FolkloreProject.png';
 import Qubyte from '@/assets/imagens/QubyteProject.png';
 import DiarioDeMartin from '@/assets/imagens/DiarioMartinProject.png';
 import EmBreve from '@/assets/imagens/EmBreve.png';
-import BlackBrothers from '@/assets/imagens/BlackBrothersProject.png';
-import CompanhiaDeConsertos from '@/assets/imagens/CompanhiaConsertosProject.png';
+import BlackBrothers from '@/assets/imagens/BlackBro.png';
+import SaasMecanica from '@/assets/imagens/Saas Mecanica.png';
 import SpotifyFrontEnd from '@/assets/imagens/SpotifyFEProject.png';
 import ChatBotDart from '@/assets/imagens/ChatDartProject.png';
 
@@ -77,9 +77,9 @@ const projetos: Projeto[] = [
     },
     {
         id: 9,
-        name: 'Companhia de Consertos',
+        name: 'Sistema para mecânica - SaaS',
         status: 'Em Desenvolvimento',
-        image: CompanhiaDeConsertos,
+        image: SaasMecanica,
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     },
     {

@@ -1,21 +1,42 @@
 <template>
     <div class="loading-screen" v-if="visible">
-        <div class="spinner">
+        <div class="spinner animate-in">
             <img class="spinner-center" src="../assets/LogoLoading.png" alt="iconZadek" width="200" />
         </div>
-        <p>Estamos buscando os dados... </p>
+        <p>{{ displayedText }}</p>
     </div>
 </template>
 
 <script lang="ts">
-export default {
+import { ref, onMounted, defineComponent } from 'vue';
+
+export default defineComponent({
     props: {
         visible: {
             type: Boolean,
             required: true
         }
+    },
+    setup() {
+        const fullText = "Estamos buscando os dados...";
+        const displayedText = ref("");
+
+        onMounted(() => {
+            let index = 0;
+            const interval = setInterval(() => {
+                displayedText.value += fullText[index];
+                index++;
+                if (index >= fullText.length) {
+                    clearInterval(interval);
+                }
+            }, 50);
+        });
+
+        return {
+            displayedText
+        };
     }
-}
+});
 </script>
 
 <style scoped>
@@ -34,6 +55,23 @@ export default {
     color: white;
     z-index: 9999;
 }
+
+.animate-in {
+    animation: fadeScaleIn 0.5s ease forwards;
+}
+
+@keyframes fadeScaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 
 .spinner {
     position: relative;

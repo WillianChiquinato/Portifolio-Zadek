@@ -1,64 +1,67 @@
 <template>
-    <div id="fade" :class="{ show: isOpen }"></div>
-    <div id="modal" ref="modal" v-if="internalShow" :class="{ show: isOpen }">
-        <div class="modal-header">
-            <button class="close-button" @click="closeModal">
-                <img src="../assets/imagens/FecharModal.png" alt="Fechar Modal">
-            </button>
-        </div>
+    <teleport to="body">
+        <div id="fade" :class="{ show: isOpen }"></div>
+        <div id="modal" ref="modal" v-if="internalShow" :class="{ show: isOpen }">
+            <div class="modal-header">
+                <button class="close-button" @click="closeModal">
+                    <img src="../assets/imagens/FecharModal.png" alt="Fechar Modal">
+                </button>
+            </div>
 
-        <div class="modal-content">
-            <div class="slider">
-                <div class="modal-image-slide">
-                    <!-- Usando a prop 'projeto' para acessar as imagens -->
-                    <input type="radio" name="raio-btn" id="radio1" checked>
-                    <input type="radio" name="raio-btn" id="radio2">
-                    <input type="radio" name="raio-btn" id="radio3">
+            <div class="modal-content">
+                <div class="slider">
+                    <div class="modal-image-slide">
+                        <!-- Usando a prop 'projeto' para acessar as imagens -->
+                        <input type="radio" name="raio-btn" id="radio1" checked>
+                        <input type="radio" name="raio-btn" id="radio2">
+                        <input type="radio" name="raio-btn" id="radio3">
 
-                    <div v-for="(image, index) in projeto?.imagens" :key="index"
-                        :class="['slider-box-image', { primeiroSlide: index === 0 }]">
-                        <img :src="image" alt="Imagem do Modal" />
-                    </div>
+                        <div v-for="(image, index) in projeto?.imagens" :key="index"
+                            :class="['slider-box-image', { primeiroSlide: index === 0 }]">
+                            <img :src="image" alt="Imagem do Modal" />
+                        </div>
 
-                    <div class="navigationAuto">
-                        <div v-for="(image, index) in projeto?.imagens" :key="index" :class="`auto-btn${index + 1}`">
+                        <div class="navigationAuto">
+                            <div v-for="(image, index) in projeto?.imagens" :key="index"
+                                :class="`auto-btn${index + 1}`">
+                            </div>
+                        </div>
+
+                        <div class="navigationManual">
+                            <label v-for="(image, index) in projeto?.imagens" :key="index" :for="`radio${index + 1}`"
+                                class="manual-btn"></label>
                         </div>
                     </div>
-
-                    <div class="navigationManual">
-                        <label v-for="(image, index) in projeto?.imagens" :key="index" :for="`radio${index + 1}`"
-                            class="manual-btn"></label>
-                    </div>
                 </div>
-            </div>
 
-            <!-- Usando a prop 'projeto' para acessar as informações -->
-            <h2 class="modal-title">{{ projeto?.nome }}</h2>
+                <!-- Usando a prop 'projeto' para acessar as informações -->
+                <h2 class="modal-title">{{ projeto?.nome }}</h2>
 
-            <div class="modal-body">
-                <p>{{ projeto?.descricao }}</p>
-            </div>
+                <div class="modal-body">
+                    <p>{{ projeto?.descricao }}</p>
+                </div>
 
-            <h2 class="modal-title">Video Trailer</h2>
-            <div class="videoContent">
-                <!-- Acessando a URL do vídeo do projeto -->
-                <iframe :src="projeto?.video" title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
+                <h2 class="modal-title">Video Trailer</h2>
+                <div class="videoContent">
+                    <!-- Acessando a URL do vídeo do projeto -->
+                    <iframe :src="projeto?.video" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
 
-            <h2 class="modal-title">Envolvidos no projeto</h2>
-            <div class="envolvidos-container">
-                <div v-for="envolvido in projeto?.envolvidos" :key="envolvido.id" class="envolvidos-content">
-                    <img :src="envolvido.image" alt="Envolvido" class="fotoEnvolvidos">
-                    <h4 class="titulo-envolvidos">{{ envolvido.name }}</h4>
-                    <div class="envolvidos-link-container">
-                        <a :href="envolvido.link" class="envolvidos-link" target="_blank">{{ envolvido.link }}</a>
+                <h2 class="modal-title">Envolvidos no projeto</h2>
+                <div class="envolvidos-container">
+                    <div v-for="envolvido in projeto?.envolvidos" :key="envolvido.id" class="envolvidos-content">
+                        <img :src="envolvido.image" alt="Envolvido" class="fotoEnvolvidos">
+                        <h4 class="titulo-envolvidos">{{ envolvido.name }}</h4>
+                        <div class="envolvidos-link-container">
+                            <a :href="envolvido.link" class="envolvidos-link" target="_blank">{{ envolvido.link }}</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </teleport>
 </template>
 
 <script lang="ts">

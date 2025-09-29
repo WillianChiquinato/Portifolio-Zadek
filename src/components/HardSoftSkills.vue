@@ -96,7 +96,7 @@ const circulosGameDev = [
     { nome: "Unity2D", imagem: unity2d, numero: 90 },
     { nome: "C# (POO)", imagem: csharp, numero: 80 },
     { nome: "Unity3D", imagem: unity3d, numero: 70 },
-    { nome: "Package Manager", imagem: packageManager, numero: 50 },
+    { nome: "Packages", imagem: packageManager, numero: 50 },
     { nome: "IA", imagem: ia, numero: 40 },
     { nome: "C++", imagem: cplusplus, numero: 20 }
 ]
@@ -134,7 +134,11 @@ export default defineComponent({
         updateCircleSize() {
             const width = window.innerWidth;
             
-            if (width < 768) {
+            if (width < 380) {
+                this.circleSize = 110;
+                this.strokeWidth = 12;
+            }
+            else if (width < 768) {
                 this.circleSize = 140;
                 this.strokeWidth = 12;
             } else if (width < 1024) {
@@ -378,7 +382,7 @@ export default defineComponent({
     }
 }
 
-@media (max-width: 410px) {
+@media (max-width: 380px) {
     :deep(.progress-image) {
         width: 40px !important;
         height: 40px !important;
@@ -392,12 +396,16 @@ export default defineComponent({
 
         .FullStackContainer {
             .progress-image {
-                width: 35px;
-                height: 35px;
+                width: 25px;
+                height: 25px;
             }
 
             .progress-text {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+            }
+
+            .circle {
+                margin: 1px 10px 10px 10px;
             }
         }
     }

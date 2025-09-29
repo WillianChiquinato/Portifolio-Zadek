@@ -41,12 +41,14 @@
                     <p>{{ projeto?.descricao }}</p>
                 </div>
 
-                <h2 class="modal-title">Video Trailer</h2>
-                <div class="videoContent">
-                    <!-- Acessando a URL do vídeo do projeto -->
-                    <iframe :src="projeto?.video" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                <div v-if="projeto?.trailerVideo">
+                    <h2 class="modal-title">Video Trailer</h2>
+                    <div class="videoContent">
+                        <!-- Acessando a URL do vídeo do projeto -->
+                        <iframe :src="projeto?.video" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
                 </div>
 
                 <h2 class="modal-title">Envolvidos no projeto</h2>
@@ -86,6 +88,7 @@ export default defineComponent({
                     nome: 'Lilith: Keys of Power',
                     descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -98,9 +101,10 @@ export default defineComponent({
                 },
                 {
                     id: 2,
-                    nome: 'Portifólio Zadek',
+                    nome: 'Qubyte - Substrato Station',
                     descricao: 'Portifólio desenvolvido em Vue.js, com o objetivo de apresentar meus projetos e habilidades.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -119,9 +123,10 @@ export default defineComponent({
                 },
                 {
                     id: 3,
-                    nome: 'Projeto X',
+                    nome: 'Folklore: Cards Adventures',
                     descricao: 'Descrição do Projeto X.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -140,9 +145,10 @@ export default defineComponent({
                 },
                 {
                     id: 4,
-                    nome: 'Projeto Y',
+                    nome: 'Eneris Planet - Global Solution 2024',
                     descricao: 'Descrição do Projeto Y.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -161,9 +167,10 @@ export default defineComponent({
                 },
                 {
                     id: 5,
-                    nome: 'Projeto Z',
+                    nome: 'Catastroph - TCC 2022',
                     descricao: 'Descrição do Projeto Z.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -182,9 +189,10 @@ export default defineComponent({
                 },
                 {
                     id: 6,
-                    nome: 'Projeto A',
+                    nome: 'Diário de Martin',
                     descricao: 'Descrição do Projeto A.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -203,9 +211,10 @@ export default defineComponent({
                 },
                 {
                     id: 7,
-                    nome: 'Projeto B',
+                    nome: 'Dungeous Crashers',
                     descricao: 'Descrição do Projeto B.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: false,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -224,9 +233,10 @@ export default defineComponent({
                 },
                 {
                     id: 8,
-                    nome: 'Projeto C',
+                    nome: 'Black Brothers',
                     descricao: 'Descrição do Projeto C.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -239,9 +249,10 @@ export default defineComponent({
                 },
                 {
                     id: 9,
-                    nome: 'Projeto D',
+                    nome: 'Saas - Sistema interno Mecânica',
                     descricao: 'Descrição do Projeto D.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -254,9 +265,10 @@ export default defineComponent({
                 },
                 {
                     id: 10,
-                    nome: 'Projeto E',
+                    nome: 'Spotify Clone - FrontEnd',
                     descricao: 'Descrição do Projeto E.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: false,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -275,9 +287,10 @@ export default defineComponent({
                 },
                 {
                     id: 11,
-                    nome: 'Projeto F',
+                    nome: 'Chat Bot em Dart',
                     descricao: 'Descrição do Projeto F.',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
@@ -386,13 +399,18 @@ export default defineComponent({
     transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
     z-index: 10001;
 
-    @media (max-width: 1025px) {
+    @media (max-width: 1366px) {
+        max-width: 40%;
+        max-height: 82%;
+    }
+
+    @media (max-width: 1125px) {
         max-width: 50%;
-        max-height: 80%;
+        max-height: 85%;
     }
 
     @media (max-width: 768px) {
-        max-width: 70%;
+        max-width: 90%;
         max-height: 80%;
     }
 }

@@ -37,7 +37,7 @@ export default defineComponent({
     data() {
         return {
             isFullStackActive: true,
-            isMobile: window.innerWidth <= 1100,
+            isMobile: window.innerWidth <= 1024,
             listaProjetos: projetos
         };
     },
@@ -57,7 +57,7 @@ export default defineComponent({
             this.isFullStackActive = !this.isFullStackActive;
         },
         handleResize() {
-            this.isMobile = window.innerWidth <= 1100;
+            this.isMobile = window.innerWidth <= 1024;
         }
     },
     mounted() {
@@ -177,6 +177,97 @@ export default defineComponent({
     .ProjetosOptions {
         font-size: clamp(1rem, 1.4vw, 1.5rem);
         padding-top: 0.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ProjetosContainer {
+        padding: 1.5rem;
+        margin-top: 3rem;
+
+        .HardTitle {
+            font-size: clamp(2.2rem, 4vw, 2.8rem);
+        }
+    }
+
+    .ProjetosOptions {
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        padding-top: 1rem;
+
+        .fullStackBtn,
+        .gameDevBtn {
+            padding: clamp(0.5rem, 0.8rem, 0.9rem) clamp(2rem, 3vw, 3.5rem);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .ProjetosContainer {
+        padding: 1rem;
+        margin-top: 2rem;
+
+        .HardTitle {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+    }
+
+    .ProjetosOptions {
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
+        padding-top: 1.2rem;
+        gap: 0;
+
+        .fullStackBtn,
+        .gameDevBtn {
+            padding: clamp(0.6rem, 1rem, 1.2rem) clamp(1.5rem, 4vw, 2.5rem);
+            border-width: 1px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .ProjetosContainer {
+        padding: 0.8rem;
+        margin-top: 1.5rem;
+
+        .HardTitle {
+            font-size: clamp(1.8rem, 6vw, 2.2rem);
+            margin-bottom: 0.8rem;
+        }
+    }
+
+    .ProjetosOptions {
+        font-size: clamp(0.8rem, 3.5vw, 1rem);
+        padding-top: 1rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+
+        .fullStackBtn,
+        .gameDevBtn {
+            padding: clamp(0.7rem, 1.2rem, 1.4rem) clamp(1.2rem, 5vw, 2rem);
+            flex: 1;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .ProjetosContainer {
+        padding: 0.5rem;
+
+        .HardTitle {
+            font-size: clamp(1.6rem, 7vw, 2rem);
+        }
+    }
+
+    .ProjetosOptions {
+        font-size: clamp(0.7rem, 4vw, 0.9rem);
+        max-width: 280px;
+
+        .fullStackBtn,
+        .gameDevBtn {
+            padding: 0.8rem 1rem;
+        }
     }
 }
 </style>

@@ -66,14 +66,14 @@ const projetos: Projeto[] = [
         name: 'Dungeon Crashers',
         status: 'Em Breve',
         image: EmBreve,
-        descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
+        descricao: 'Em breve com novas novidades.'
     },
     {
         id: 8,
         name: 'Black Brothers',
         status: 'Em Desenvolvimento',
         image: BlackBrothers,
-        descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
+        descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, para facilitar o desenvolvimento, usamos a metodologia KANBAN, com reuniões semanais, para garantir a entrega de um produto de qualidade e dentro do prazo estipulado.'
     },
     {
         id: 9,
@@ -97,7 +97,5 @@ const projetos: Projeto[] = [
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     }
 ];
-
-//Espaço invisivel: ㅤ <--
 
 export default projetos;

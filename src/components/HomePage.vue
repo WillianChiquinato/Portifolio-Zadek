@@ -331,4 +331,97 @@ export default defineComponent({
         }
     }
 }
+
+@media (max-width: 450px) {
+    .homePage {
+        margin-top: 0.9rem;
+
+        .contentHomePage {
+            .contenText {
+                h2 {
+                    font-size: clamp(2rem, 1.3vw, 2.4rem);
+                }
+
+                span {
+                    font-size: clamp(0.7rem, 1vw, 1.2rem);
+                }
+
+                p {
+                    font-size: clamp(0.8rem, 1vw, 1.3rem);
+                    margin-top: 1.2rem;
+                }
+            }
+
+            .DownloadCV {
+                font-size: clamp(1.3rem, 2vw, 2.1rem);
+                padding: 0.7rem 1.8rem;
+            }
+
+            .contexTextIconeMap {
+                gap: 0.7rem;
+                margin: 0rem 0rem 0rem 6rem;
+                padding-bottom: 2rem;
+
+                i {
+                    font-size: 1.2rem;
+                }
+
+                span {
+                    font-size: 0.7rem;
+                    margin-top: 0.4rem;
+                }
+            }
+        }
+
+        .contentVideo {
+            width: 100%;
+            padding-bottom: 0.9rem;
+
+            iframe {
+                width: clamp(22rem, 28vw, 35rem);
+            }
+
+            .iconesRedesSociais {
+                gap: 1.72rem;
+                padding-top: 1rem;
+
+                a i {
+                    font-size: 1.7rem;
+                }
+            }
+        }
+    }
+
+    .imagemResponsivoZadek {
+        margin-top: 1rem;
+
+        img {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .homePage {
+        .contentHomePage {
+            .contenText {
+                p {
+                    padding: 0rem 1rem;
+                }
+            }
+
+            .contentVideo {
+                iframe {
+                    width: clamp(18rem, 22vw, 28rem);
+                }
+            }
+        }
+    }
+
+    .imagemResponsivoZadek {
+        img {
+            width: 70%;
+        }
+    }
+}
 </style>

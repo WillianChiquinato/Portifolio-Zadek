@@ -93,7 +93,15 @@ import Catastroph3 from '@/assets/imagens/Catastroph3.jpeg';
 import SubstratoStation1 from '@/assets/imagens/Substrato1.png';
 import SubstratoStation2 from '@/assets/imagens/Substrato2.png';
 import SubstratoStation3 from '@/assets/imagens/Substrato3.png';
-
+import DiarioMartin from '@/assets/imagens/DiarioMartin1.png';
+import DiarioMartin2 from '@/assets/imagens/DiarioMartin2.png';
+import DiarioMartin3 from '@/assets/imagens/DiarioMartin3.png';
+import SiteCedihus from '@/assets/imagens/Cedihus1.png';
+import SiteCedihus2 from '@/assets/imagens/Cedihus2.png';
+import SiteCedihus3 from '@/assets/imagens/Cedihus3.png';
+import BullShit from '@/assets/imagens/BullShit1.png';
+import BullShit2 from '@/assets/imagens/BullShit2.png';
+import BullShit3 from '@/assets/imagens/BullShit3.png';
 // Fotos pessoais.
 import WillFoto from '@/assets/imagens/persons/Will-Fotos.jpeg';
 import RenanFoto from '@/assets/imagens/persons/RenanFoto.jpg';
@@ -217,27 +225,37 @@ export default defineComponent({
                 {
                     id: 6,
                     nome: 'Diário de Martin',
-                    descricao: 'Descrição do Projeto A.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: 'Martin Dastmal, de 14 anos, estuda no ensino fundamental da universidade de JackVille e passa grande parte do tempo na biblioteca com seus amigos Douglas e Vitor. No dia de seu aniversário de 15 anos, tudo dá errado: enfrenta uma prova difícil, vê Douglas sendo intimidado por valentões, sofre bullying, tira uma nota baixa e acaba humilhado em uma partida de vôlei diante de colegas mais velhos. \n\nAbalado, Martin foge para o banheiro, onde chora sozinho até ouvir um estranho sussurro. De repente, desmaia e, ao despertar, descobre que está em uma universidade vazia, escura e silenciosa, com apenas a voz misteriosa tentando se comunicar com ele',
+                    imagens: [DiarioMartin, DiarioMartin2, DiarioMartin3],
                     trailerVideo: true,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    video: 'https://www.youtube.com/embed/1vqPZgh8DJM',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
+                            name: 'Desenvolvedor Unity2D',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         },
-                        {
-                            id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
-                        }
                     ]
                 },
                 {
                     id: 7,
+                    nome: 'BullShit',
+                    descricao: 'Um jogo feito para duas pessoas localmente, com tela dividida, onde é possível derrotar o inimigo atirando nele, porém com uma IA te observando, a cada 10 segundos se um dos dois se mexerem, serão eliminados. \n\nSegue o vídeo:',
+                    imagens: [BullShit, BullShit2, BullShit3],
+                    trailerVideo: true,
+                    video: 'https://www.youtube.com/embed/JT__ciPpz2Y',
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor Unity2D',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
+                        }
+                    ]
+                },
+                {
+                    id: 8,
                     nome: 'Dungeous Crashers',
                     descricao: 'Em breve...',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
@@ -259,7 +277,7 @@ export default defineComponent({
                     ]
                 },
                 {
-                    id: 8,
+                    id: 9,
                     nome: 'Black Brothers',
                     descricao: 'Um aplicativo intitulado "Black Brothers", que tem a função de ser um app fitness para ser utilizado por academias e seus alunos com o intuito de armazenar e compartilhar detalhes e progresso de cada usuário dentro de uma academia. Esse projeto se deu através de um estudo de caso real, onde foi realizada um pesquisa pela periferia de Guaianases e encontramos a academia Black Brothers, que nos forneceu dados sobre o seu negócio e como um aplicativo poderia favorecer o serviço oferecido aos clientes. O app que está em desenvolvimento utilizará a linguagem Dart/Flutter, API rest em Python/Flask e MySQL como banco de dados, para trazer funcionalidades de treinos com vídeos e descrições, registro de frequência, agendamento de consultas com nutricionista e inserção de dashboards em sua interface.',
                     imagens: [BlackBrothers1, BlackBrothers2, BlackBrothers3],
@@ -299,7 +317,7 @@ export default defineComponent({
                     ]
                 },
                 {
-                    id: 9,
+                    id: 10,
                     nome: 'Saas - Sistema interno Mecânica',
                     descricao: 'A equipe e um dos sócios da mecânica me procuraram no início do ano com o objetivo de modernizar o sistema interno. Eles queriam uma solução que substituísse as planilhas de Excel, oferecendo uma interface mais amigável, visualmente atraente e dinâmica. No entanto, o Excel ainda precisa ser mantido como uma opção para reuniões mensais e geração de relatórios. Para atender essa demanda, implementarei uma home page com filtros de mês e ano, permitindo que o sistema fosse dividido em períodos, evitando sobrecarregar o carregamento assíncrono. O sistema interno está sendo projetado para: \n\n- Gerenciamento de veículos: cadastro de carros finalizados, acompanhamento de “retrabalhos” (carros que retornam na mesma semana), categorizados como particulares ou seguradoras. \n- Gestão de funcionários: inclusão e exclusão de colaboradores, com funcionalidades adicionais, como controle de vale PIX e convênios. \n- Cadastro de despesas: formulário descritivo para registrar despesas com tipos como equipamentos e contas. \n- Indicadores visuais: dashboards com indicadores em circle progress, ajustáveis para diferentes métricas, além do cálculo do ticket médio (dividido em três etapas para o mês e o total). \n- Relatórios e exportações: uma funcionalidade de "Extract" que permite extrair os dados do sistema diretamente para uma planilha Excel (mensal), de forma rápida e dinâmica. Todas as informações do sistema estão organizadas e divididas em faturamento e despesas, permitindo uma visão clara e prática do desempenho geral da mecânica.',
                     imagens: [Companhia0, Companhia2, Companhia3],
@@ -315,7 +333,7 @@ export default defineComponent({
                     ]
                 },
                 {
-                    id: 10,
+                    id: 11,
                     nome: 'Spotify Clone - FrontEnd',
                     descricao: 'Foi desenvolvido a interface do Spotify, um software streamer de músicas, analizada a situação, construí uma versão do front-end em HTML5, CSS3 e Javascript...',
                     imagens: [Spotify, Spotify2, Spotify3],
@@ -331,10 +349,26 @@ export default defineComponent({
                     ]
                 },
                 {
-                    id: 11,
+                    id: 12,
                     nome: 'Chat Bot em Dart',
                     descricao: 'Foi desenvolvido um ChatBot pessoal que atende as suas perguntas pessoais, como o horario atual ou qual dia é hoje, um Bot criado com perguntas locais mas simulando assincronismo para "Informações externas" como banco de dados e APIs, aprendendo como manipular informações assincronas com Future e Stream, streams para manipular o tempo de execução do Bot para nao sobrecarregar, construtores e métodos para a criação da verificação de perguntas, assim fazendo uma estrutura para adicionar mais perguntas conforme os seus critérios...',
                     imagens: [ChatBotDart, ChatBotDart2, ChatBotDart3],
+                    trailerVideo: false,
+                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor FullStack',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
+                        }
+                    ]
+                },
+                {
+                    id: 13,
+                    nome: 'Site Cedihus - USP',
+                    descricao: 'Foi desenvolvido um site para o Cedihus - USP, com o objetivo de fornecer informações sobre o centro de estudos e suas atividades. O site foi construído utilizando Wordpress, com um design responsivo e intuitivo, visando facilitar o acesso às informações pelos usuários e focando na acessibilidade e organizar dos materiais da OMS. \n\nO cliente queria um blog porem com a quantidade de informações nao poderia ser totalmente possivel essa ideia, entao fiz uma aba a parte sobre esse tópico.',
+                    imagens: [SiteCedihus, SiteCedihus2, SiteCedihus3],
                     trailerVideo: false,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [

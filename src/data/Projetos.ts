@@ -9,6 +9,8 @@ import BlackBrothers from '@/assets/imagens/BlackBro.png';
 import SaasMecanica from '@/assets/imagens/Saas Mecanica.png';
 import SpotifyFrontEnd from '@/assets/imagens/SpotifyFEProject.png';
 import ChatBotDart from '@/assets/imagens/ChatDartProject.png';
+import BullShit from '@/assets/imagens/BullShit.png';
+import SiteCedihus from '@/assets/imagens/CedihusCapa.png';
 
 interface Projeto {
     id: number;
@@ -65,8 +67,8 @@ const projetos: Projeto[] = [
         id: 7,
         name: 'BullShit',
         status: 'Finalizado em 04/2025',
-        image: EmBreve,
-        descricao: ''
+        image: BullShit,
+        descricao: 'Um jogo feito para duas pessoas localmente, com tela dividida, onde é possível derrotar o inimigo atirando nele, porém com uma IA te observando.'
     },
     {
         id: 8,
@@ -107,7 +109,7 @@ const projetos: Projeto[] = [
         id: 13,
         name: 'Site Cedihus - Usp Ribeirão Preto',
         status: 'Finalizado em 08/2025',
-        image: ChatBotDart,
+        image: SiteCedihus,
         descricao: ''
     }
 ];

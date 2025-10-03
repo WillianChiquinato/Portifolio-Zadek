@@ -66,9 +66,9 @@ export default defineComponent({
         const isVisible = useIntersection(sectionRef, { threshold: 0.2 })
 
         const RedesSociaisValores = [
-            { icon: 'fab fa-github', link: 'https://github.com/SeuPerfil' },
-            { icon: 'fab fa-linkedin', link: 'https://linkedin.com/in/SeuPerfil' },
-            { icon: 'fab fa-instagram', link: 'https://instagram.com/SeuPerfil' }
+            { icon: 'fab fa-github', link: 'https://github.com/WillianChiquinato' },
+            { icon: 'fab fa-linkedin', link: 'https://linkedin.com/in/willianchiquinato' },
+            { icon: 'fab fa-instagram', link: 'https://instagram.com/will_schiquinato' }
         ]
 
         return { sectionRef, isVisible, RedesSociaisValores }

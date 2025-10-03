@@ -1,8 +1,8 @@
 <template>
-    <div class="footerContainer is-flex is-justify-content-center is-align-items-center">
+    <div id="contact" class="footerContainer is-flex is-justify-content-center is-align-items-center">
         <div class="footerContent">
             <img src="../assets/imagens/LogoTipoFooter.png" alt="LogoTipoFooter">
-            <button class="faleComigoBtn">Fale Comigo</button>
+            <button class="faleComigoBtn" @click="handleClick">Fale Comigo</button>
             <h6>@Copyright 2025</h6>
             <span>Direitos autorais reservados, by Willian de sena chiquinato</span>
         </div>
@@ -12,7 +12,13 @@
 <script lang="ts">
 export default {
     name: 'FooterProject',
-    components: {}
+    components: {},
+    methods: {
+        handleClick() {
+            //Va para o whatsapp, abre em outra aba.
+            window.open('https://wa.me/5511948641187', '_blank');
+        }
+    }
 }
 </script>
 

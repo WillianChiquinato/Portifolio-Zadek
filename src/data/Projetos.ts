@@ -63,38 +63,52 @@ const projetos: Projeto[] = [
     },
     {
         id: 7,
+        name: 'BullShit',
+        status: 'Finalizado em 04/2025',
+        image: EmBreve,
+        descricao: ''
+    },
+    {
+        id: 8,
         name: 'Dungeon Crashers',
         status: 'Em Breve',
         image: EmBreve,
         descricao: 'Em breve com novas novidades.'
     },
     {
-        id: 8,
+        id: 9,
         name: 'Black Brothers',
         status: 'Em Desenvolvimento',
         image: BlackBrothers,
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, para facilitar o desenvolvimento, usamos a metodologia KANBAN, com reuniões semanais, para garantir a entrega de um produto de qualidade e dentro do prazo estipulado.'
     },
     {
-        id: 9,
+        id: 10,
         name: 'Sistema para mecânica - SaaS',
         status: 'Em Desenvolvimento',
         image: SaasMecanica,
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     },
     {
-        id: 10,
+        id: 11,
         name: 'Spotify - Front End',
         status: 'Finalizado em Imersão - Alura',
         image: SpotifyFrontEnd,
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     },
     {
-        id: 11,
+        id: 12,
         name: 'Chat BOT em Dart',
         status: 'Finalizado em 2 meses de 2024',
         image: ChatBotDart,
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
+    },
+    {
+        id: 13,
+        name: 'Site Cedihus - Usp Ribeirão Preto',
+        status: 'Finalizado em 08/2025',
+        image: ChatBotDart,
+        descricao: ''
     }
 ];
 

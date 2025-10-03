@@ -57,7 +57,8 @@
                         <img :src="envolvido.image" alt="Envolvido" class="fotoEnvolvidos">
                         <h4 class="titulo-envolvidos">{{ envolvido.name }}</h4>
                         <div class="envolvidos-link-container">
-                            <a :href="envolvido.link" class="envolvidos-link" target="_blank">{{ envolvido.link }}</a>
+                            <a :href="normalizeLink(envolvido.link)" class="envolvidos-link" target="_blank"
+                                rel="noopener noreferrer">{{ envolvido.link }}</a>
                         </div>
                     </div>
                 </div>
@@ -70,6 +71,38 @@
 import { defineComponent } from 'vue';
 import fotoTestePreta from '@/assets/imagens/FundoPreto.png';
 
+// Foto dos projetos.
+import BlackBrothers1 from '@/assets/imagens/BlackBrothers1.png';
+import BlackBrothers2 from '@/assets/imagens/BlackBrothers2.png';
+import BlackBrothers3 from '@/assets/imagens/BlackBrothers3.jpg';
+import Companhia0 from '@/assets/imagens/Companhia0.png';
+import Companhia2 from '@/assets/imagens/Companhia2.png';
+import Companhia3 from '@/assets/imagens/Companhia3.png';
+import Spotify from '@/assets/imagens/Spotify1.png';
+import Spotify2 from '@/assets/imagens/Spotify2.jfif';
+import Spotify3 from '@/assets/imagens/Spotify3.jfif';
+import ChatBotDart from '@/assets/imagens/ChatBot1.jpg';
+import ChatBotDart2 from '@/assets/imagens/ChatBot2.jpg';
+import ChatBotDart3 from '@/assets/imagens/ChatBot3.jfif';
+import EnerisPlanet from '@/assets/imagens/Eneris1.jpeg';
+import EnerisPlanet2 from '@/assets/imagens/Eneris2.jpeg';
+import EnerisPlanet3 from '@/assets/imagens/Eneris3.jpeg';
+import Catastroph1 from '@/assets/imagens/Catastroph1.png';
+import Catastroph2 from '@/assets/imagens/Catastroph2.jpeg';
+import Catastroph3 from '@/assets/imagens/Catastroph3.jpeg';
+import SubstratoStation1 from '@/assets/imagens/Substrato1.png';
+import SubstratoStation2 from '@/assets/imagens/Substrato2.png';
+import SubstratoStation3 from '@/assets/imagens/Substrato3.png';
+
+// Fotos pessoais.
+import WillFoto from '@/assets/imagens/persons/Will-Fotos.jpeg';
+import RenanFoto from '@/assets/imagens/persons/RenanFoto.jpg';
+import GustavoValaFoto from '@/assets/imagens/persons/GustavoVaFoto.jpg';
+import JuanFoto from '@/assets/imagens/persons/JuanFoto.jpg';
+import VitorFoto from '@/assets/imagens/persons/VitorVentFoto.jpg';
+import EnzoFoto from '@/assets/imagens/persons/EnzoFoto.jpg';
+import LucasFoto from '@/assets/imagens/persons/LucasFoto.jpg';
+
 export default defineComponent({
     data() {
         return {
@@ -77,9 +110,9 @@ export default defineComponent({
             envolvidos: [
                 {
                     id: 1,
-                    Name: 'Desenvolvedor do ChatBot em Dart',
-                    image: 'ChatBot Dart',
-                    link: 'https://www.youtube.com/?themeRefresh=1'
+                    Name: '',
+                    image: '',
+                    link: ''
                 }
             ],
             modais: [
@@ -102,22 +135,22 @@ export default defineComponent({
                 {
                     id: 2,
                     nome: 'Qubyte - Substrato Station',
-                    descricao: 'Portifólio desenvolvido em Vue.js, com o objetivo de apresentar meus projetos e habilidades.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: 'O Substrato Station é um jogo 3D multiplayer, low poly, desenvolvido na Unity3D com C#. Ele propõe uma experiência cooperativa de puzzles no qual os jogadores precisam trabalhar juntos para superar desafios. \n\nApós um desastre natural, o prédio de uma empresa privada de pesquisas químicas desabou. Os 18 andares superiores colapsaram, deixando apenas os 4 andares subterrâneos intactos. Presos nesse subsolo, os poucos funcionários sobreviventes descobrem que os experimentos com animais genéticos foram liberados — agora hostis, inteligentes e alterados. Os jogadores assumem o papel desses funcionários. Sem comunicação com o mundo exterior, precisam resolver puzzles, sobreviver a emboscadas, e cooperar para escapar. O objetivo dos jogadores é subirem os 4 andares do subsolo e escaparem da empresa demolida, os jogadores começam no último andar e cada andar tem um puzzle para resolver.',
+                    imagens: [SubstratoStation1, SubstratoStation2, SubstratoStation3],
                     trailerVideo: true,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    video: 'https://www.youtube.com/embed/6ge4WploLa4',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
+                            name: 'Desenvolvedor Unity3D',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         },
                         {
                             id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Modelagem 3D e Designer Gráfico',
+                            image: LucasFoto,
+                            link: 'https://www.linkedin.com/in/lsantiagoc'
                         }
                     ]
                 },
@@ -146,44 +179,38 @@ export default defineComponent({
                 {
                     id: 4,
                     nome: 'Eneris Planet - Global Solution 2024',
-                    descricao: 'Descrição do Projeto Y.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: 'Diante de um desafio da FIAP - Global Solution, para energia sustentável, desenvolvemos o ENERIS PLANET, um jogo 2D side scrolling que conscientiza e explica indiretamente sobre a energia geotérmica, desenvolvido 1 fase inteira com um tempo estimado de 10 dias até o final do desafio... Em um planeta vizinho de Saturno, Eneris é um planeta cujo sua principal mão de obra e dificuldade é a  energia, o planeta inteiro é feito para a energia e seu núcleo, a matriz do planeta é reabastecida manualmente pela população e empregados nas empresas de energia geotermicas. Com isso temos o Zadek, um homem de 25 anos, recém saído da fase de estudos, foi aprovado na PSN (Projetos de soluções nucleotecnicas) e terá o dia a dia demonstrado no jogo, Eneris terá desafios, inimigos feito de carbono e líquido amarelo escuro que sujam o ambiente aonde passam e não deixam Zadek trabalhar, chamados de Rek"Tech, Zadek terá que fazer a manutenção do maquinário TVB (Totens de Vapor binário) contendo o liquido "Novair" com ponto de ebulição para acionar a turbinas geotermicas em pontos específicos no mapa, os totens se sobrecarregam quando não faz a manutenção ou não consegue por conta os Rek"Techs, seu objetivo em cada mapa é deixar o Nucleo "Novan" do planeta Eneris ativado, pois ele se esfria a cada momento que não tem retorno de energia, conseguindo ativar todos os totens ao mesmo tempo, os inimigos serão destruidos e Zadek terá seu dia feito.',
+                    imagens: [EnerisPlanet, EnerisPlanet2, EnerisPlanet3],
                     trailerVideo: true,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    video: 'https://www.youtube.com/embed/WYJlNK23viA',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
-                        },
-                        {
-                            id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Desenvolvedor FullStack',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         }
                     ]
                 },
                 {
                     id: 5,
                     nome: 'Catastroph - TCC 2022',
-                    descricao: 'Descrição do Projeto Z.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: '"Catastroph", Um jogo 2d no estilo metroidvania, baseado em Hollow Knight, BloodBorne e Elden Ring. O jogo foi criado com um propósito de conscientizar e divertir o consumidor a partir de uma história baseado em romance epistolar e Souls Like, a narrativa do jogo narra a história de Luara em uma cidade de pescadores que adoram a Lua como uma deusa, a cidade passa por momentos difíceis desde o desaparecimento do sol e da lua nos céus, como consequência do uso indevido da magia proporcionada pelos dois astros. O jogador controlará o gato Astroph, um determinado herói que busca encontrar a sua amiga Beth, para isso o jogador passará por diversos desafios dentro da cidade de Luara. Por conta do desaparecimento do Astro Rei e do Satélite da Terra, a pesca, atividade chave na economia e sustento de Luara, os pescadores locais usaram de uma magia proibida para atrair os peixes, mas essa magia acaba tendo um efeito colateral que transformava as pessoas que consumiam os peixes em animais marinhos aos poucos, criando assim aberrações de humanos amalgamados com peixes, águas-vivas, lagostas etc. A infecção também se alastrou para outros tipos de formas de vidas além dos humanos, os peixes infectados foram consumidos por outros peixes maiores e até mesmo por gaivotas, contaminado assim todo o eco sistema.',
+                    imagens: [Catastroph1, Catastroph2, Catastroph3],
                     trailerVideo: true,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    video: 'https://www.youtube.com/embed/SrD-ay0wH9o',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
+                            name: 'Programador GDscript',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         },
                         {
                             id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Artista 2D, Animador e Designer Gráfico',
+                            image: EnzoFoto,
+                            link: 'https://www.artstation.com/enzolonghi'
                         }
                     ]
                 },
@@ -212,98 +239,110 @@ export default defineComponent({
                 {
                     id: 7,
                     nome: 'Dungeous Crashers',
-                    descricao: 'Descrição do Projeto B.',
+                    descricao: 'Em breve...',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     trailerVideo: false,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
+                            name: 'Desenvolvedor Unity2D',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         },
                         {
                             id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Animador e Designer Gráfico',
+                            image: EnzoFoto,
+                            link: 'https://www.artstation.com/enzolonghi'
                         }
                     ]
                 },
                 {
                     id: 8,
                     nome: 'Black Brothers',
-                    descricao: 'Descrição do Projeto C.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: 'Um aplicativo intitulado "Black Brothers", que tem a função de ser um app fitness para ser utilizado por academias e seus alunos com o intuito de armazenar e compartilhar detalhes e progresso de cada usuário dentro de uma academia. Esse projeto se deu através de um estudo de caso real, onde foi realizada um pesquisa pela periferia de Guaianases e encontramos a academia Black Brothers, que nos forneceu dados sobre o seu negócio e como um aplicativo poderia favorecer o serviço oferecido aos clientes. O app que está em desenvolvimento utilizará a linguagem Dart/Flutter, API rest em Python/Flask e MySQL como banco de dados, para trazer funcionalidades de treinos com vídeos e descrições, registro de frequência, agendamento de consultas com nutricionista e inserção de dashboards em sua interface.',
+                    imagens: [BlackBrothers1, BlackBrothers2, BlackBrothers3],
                     trailerVideo: true,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    video: 'https://www.youtube.com/embed/gP61oBab8s8',
                     envolvidos: [
                         {
+                            id: 1,
+                            name: 'Programador FullStack',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
+                        },
+                        {
                             id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Programador Front End - App',
+                            image: RenanFoto,
+                            link: 'https://www.linkedin.com/in/renan-silva-pinheiro-400420282'
+                        },
+                        {
+                            id: 3,
+                            name: 'Programador Front End - Admin',
+                            image: GustavoValaFoto,
+                            link: 'https://www.linkedin.com/in/gustavo-valadares-8780472a1'
+                        },
+                        {
+                            id: 4,
+                            name: 'Programador Back End',
+                            image: JuanFoto,
+                            link: 'https://www.linkedin.com/in/juanlimar'
+                        },
+                        {
+                            id: 5,
+                            name: 'Documentação, Banner && Artigo',
+                            image: VitorFoto,
+                            link: 'https://www.linkedin.com/in/vitor-ventola-6a035225a'
                         }
                     ]
                 },
                 {
                     id: 9,
                     nome: 'Saas - Sistema interno Mecânica',
-                    descricao: 'Descrição do Projeto D.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: 'A equipe e um dos sócios da mecânica me procuraram no início do ano com o objetivo de modernizar o sistema interno. Eles queriam uma solução que substituísse as planilhas de Excel, oferecendo uma interface mais amigável, visualmente atraente e dinâmica. No entanto, o Excel ainda precisa ser mantido como uma opção para reuniões mensais e geração de relatórios. Para atender essa demanda, implementarei uma home page com filtros de mês e ano, permitindo que o sistema fosse dividido em períodos, evitando sobrecarregar o carregamento assíncrono. O sistema interno está sendo projetado para: \n\n- Gerenciamento de veículos: cadastro de carros finalizados, acompanhamento de “retrabalhos” (carros que retornam na mesma semana), categorizados como particulares ou seguradoras. \n- Gestão de funcionários: inclusão e exclusão de colaboradores, com funcionalidades adicionais, como controle de vale PIX e convênios. \n- Cadastro de despesas: formulário descritivo para registrar despesas com tipos como equipamentos e contas. \n- Indicadores visuais: dashboards com indicadores em circle progress, ajustáveis para diferentes métricas, além do cálculo do ticket médio (dividido em três etapas para o mês e o total). \n- Relatórios e exportações: uma funcionalidade de "Extract" que permite extrair os dados do sistema diretamente para uma planilha Excel (mensal), de forma rápida e dinâmica. Todas as informações do sistema estão organizadas e divididas em faturamento e despesas, permitindo uma visão clara e prática do desempenho geral da mecânica.',
+                    imagens: [Companhia0, Companhia2, Companhia3],
                     trailerVideo: true,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    video: 'https://www.youtube-nocookie.com/embed/jzlnFV-EyTA?rel=0&modestbranding=1',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
+                            name: 'Desenvolvedor FullStack',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         }
                     ]
                 },
                 {
                     id: 10,
                     nome: 'Spotify Clone - FrontEnd',
-                    descricao: 'Descrição do Projeto E.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: 'Foi desenvolvido a interface do Spotify, um software streamer de músicas, analizada a situação, construí uma versão do front-end em HTML5, CSS3 e Javascript...',
+                    imagens: [Spotify, Spotify2, Spotify3],
                     trailerVideo: false,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
-                        },
-                        {
-                            id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Desenvolvedor FullStack',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         }
                     ]
                 },
                 {
                     id: 11,
                     nome: 'Chat Bot em Dart',
-                    descricao: 'Descrição do Projeto F.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
-                    trailerVideo: true,
+                    descricao: 'Foi desenvolvido um ChatBot pessoal que atende as suas perguntas pessoais, como o horario atual ou qual dia é hoje, um Bot criado com perguntas locais mas simulando assincronismo para "Informações externas" como banco de dados e APIs, aprendendo como manipular informações assincronas com Future e Stream, streams para manipular o tempo de execução do Bot para nao sobrecarregar, construtores e métodos para a criação da verificação de perguntas, assim fazendo uma estrutura para adicionar mais perguntas conforme os seus critérios...',
+                    imagens: [ChatBotDart, ChatBotDart2, ChatBotDart3],
+                    trailerVideo: false,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
-                        },
-                        {
-                            id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Desenvolvedor FullStack',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         }
                     ]
                 }
@@ -346,6 +385,11 @@ export default defineComponent({
             slides.forEach((slide, i) => {
                 slide.classList.toggle('primeiroImagem', i === index);
             });
+        },
+        normalizeLink(link: string) {
+            if (!link) return '#';
+            // se já tem http/https, retorna; se não, adiciona https://
+            return /^https?:\/\//i.test(link) ? link : 'https://' + link;
         }
     },
     mounted() {
@@ -499,10 +543,10 @@ export default defineComponent({
         width: 100%;
 
         iframe {
-            width: 80%;
-            height: 295px;
-            border-radius: 1rem;
-            margin-bottom: 1.3rem;
+            width: 95%;
+            height: 260px;
+            border-radius: 0.6rem;
+            margin-bottom: 1.5rem;
         }
     }
 }
@@ -542,8 +586,12 @@ export default defineComponent({
 }
 
 .slider-box-image img {
-    width: 90%;
-    border-radius: 1rem;
+    width: 95%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    display: block;
+    margin: 0 auto;
 }
 
 .navigationManual,
@@ -608,17 +656,7 @@ export default defineComponent({
 
     p {
         color: var(--color-preto);
-    }
-
-    &::before {
-        content: '';
-        align-items: center;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 60px;
-        background: linear-gradient(transparent, #AFEFEF);
+        white-space: pre-line;
     }
 }
 
@@ -639,9 +677,11 @@ export default defineComponent({
         background-color: var(--color-preto);
 
         .fotoEnvolvidos {
+            width: 100%;
             height: 250px;
+            object-fit: cover;
             margin-bottom: 5px;
-            border-bottom: solid 1px #3a3a3a;
+            border-bottom: solid 2px #3a3a3a;
         }
 
         .titulo-envolvidos {

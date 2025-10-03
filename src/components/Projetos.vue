@@ -69,7 +69,7 @@ export default defineComponent({
     },
     setup() {
         const sectionRef = ref<HTMLElement | null>(null)
-        const isVisible = useIntersection(sectionRef, { threshold: 0.3 })
+        const isVisible = useIntersection(sectionRef, { threshold: 0.1 })
 
         return { sectionRef, isVisible }
     }

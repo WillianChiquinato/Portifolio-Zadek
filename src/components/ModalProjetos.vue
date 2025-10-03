@@ -490,6 +490,21 @@ export default defineComponent({
     @media (max-width: 768px) {
         max-width: 90%;
         max-height: 80%;
+        width: 95vw;
+        height: 90vh;
+        padding: 8px 12px;
+        border-radius: 1rem;
+        top: 50%;
+        left: 50%;
+    }
+
+    @media (max-width: 480px) {
+        max-width: 95%;
+        max-height: 75%;
+        width: 98vw;
+        height: 95vh;
+        padding: 6px 10px;
+        border-radius: 0.8rem;
     }
 }
 
@@ -545,6 +560,16 @@ export default defineComponent({
         cursor: pointer;
         transition: 0.3s;
 
+        @media (max-width: 768px) {
+            top: -0.8rem;
+            left: -0.8rem;
+        }
+
+        @media (max-width: 480px) {
+            top: -0.6rem;
+            left: -0.6rem;
+        }
+
         &:hover {
             scale: 1.1;
         }
@@ -554,6 +579,16 @@ export default defineComponent({
         width: 60px;
         height: 60px;
         cursor: pointer;
+
+        @media (max-width: 768px) {
+            width: 50px;
+            height: 50px;
+        }
+
+        @media (max-width: 480px) {
+            width: 40px;
+            height: 40px;
+        }
     }
 }
 
@@ -562,12 +597,26 @@ export default defineComponent({
     height: 88%;
     overflow-y: auto;
 
+    @media (max-width: 768px) {
+        height: 90%;
+    }
+
     .modal-title {
         text-align: center;
         font-size: clamp(2rem, 2.3vw, 2.7rem);
         font-weight: bold;
         color: var(--color-preto);
         margin: 1.3rem 0rem;
+
+        @media (max-width: 768px) {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin: 1rem 0rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            margin: 0.8rem 0rem;
+        }
     }
 
     .videoContent {
@@ -581,6 +630,17 @@ export default defineComponent({
             height: 260px;
             border-radius: 0.6rem;
             margin-bottom: 1.5rem;
+
+            @media (max-width: 768px) {
+                width: 100%;
+                height: 200px;
+                margin-bottom: 1rem;
+            }
+
+            @media (max-width: 480px) {
+                height: 180px;
+                border-radius: 0.4rem;
+            }
         }
     }
 }
@@ -597,6 +657,14 @@ export default defineComponent({
     padding: 0 !important;
     border-bottom: solid 2px #000000;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+        border-bottom-width: 1.5px;
+    }
+
+    @media (max-width: 480px) {
+        border-bottom-width: 1px;
+    }
 }
 
 .modal-image-slide {
@@ -626,6 +694,16 @@ export default defineComponent({
     border-radius: 0.5rem;
     display: block;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+        height: 200px;
+        width: 98%;
+    }
+
+    @media (max-width: 480px) {
+        height: 160px;
+        width: 100%;
+    }
 }
 
 .navigationManual,
@@ -636,6 +714,16 @@ export default defineComponent({
     width: 25%;
     bottom: 13px;
     padding-top: 20px;
+
+    @media (max-width: 768px) {
+        bottom: 8px;
+        padding-top: 15px;
+    }
+
+    @media (max-width: 480px) {
+        bottom: 5px;
+        padding-top: 10px;
+    }
 }
 
 .navigationManual .manual-btn,
@@ -645,12 +733,26 @@ export default defineComponent({
     border-radius: 50%;
     cursor: pointer;
     transition: 0.5s;
+
+    @media (max-width: 768px) {
+        padding: 6px;
+        border-width: 1.5px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 5px;
+        border-width: 1px;
+    }
 }
 
 /* Todos com o filtro menos o ultimo "Filho" */
 .navigationManual .manual-btn:not(:last-child),
 .navigationAuto div:not(:last-child) {
     margin-right: 10px;
+
+    @media (max-width: 480px) {
+        margin-right: 8px;
+    }
 }
 
 .navigationManual .manual-btn:hover {
@@ -688,6 +790,19 @@ export default defineComponent({
     text-align: justify;
     padding: 10px 25px 0 25px;
 
+    @media (max-width: 768px) {
+        font-size: 16px;
+        padding: 8px 15px 0 15px;
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 14px;
+        padding: 6px 10px 0 10px;
+        margin-bottom: 6px;
+        text-align: left;
+    }
+
     p {
         color: var(--color-preto);
         white-space: pre-line;
@@ -701,6 +816,11 @@ export default defineComponent({
     align-items: center;
     justify-content: space-around;
 
+    @media (max-width: 768px) {
+        justify-content: center;
+        gap: 1rem;
+    }
+
     .envolvidos-content {
         width: 220px;
         flex-direction: column;
@@ -710,12 +830,30 @@ export default defineComponent({
         border: solid 2px #3a3a3a;
         background-color: var(--color-preto);
 
+        @media (max-width: 768px) {
+            width: 180px;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            width: 160px;
+            margin-bottom: 1rem;
+        }
+
         .fotoEnvolvidos {
             width: 100%;
             height: 250px;
             object-fit: cover;
             margin-bottom: 5px;
             border-bottom: solid 2px #3a3a3a;
+
+            @media (max-width: 768px) {
+                height: 200px;
+            }
+
+            @media (max-width: 480px) {
+                height: 160px;
+            }
         }
 
         .titulo-envolvidos {
@@ -728,6 +866,11 @@ export default defineComponent({
             overflow: hidden;
             text-overflow: ellipsis;
             padding: 0rem 1rem;
+
+            @media (max-width: 480px) {
+                font-size: clamp(0.7rem, 1vw, 1rem);
+                padding: 0rem 0.5rem;
+            }
         }
 
         .envolvidos-link-container {
@@ -738,6 +881,11 @@ export default defineComponent({
             margin-bottom: 15px;
             padding: 0 0.7rem;
 
+            @media (max-width: 480px) {
+                padding: 0 0.5rem;
+                margin-bottom: 10px;
+            }
+
             .envolvidos-link {
                 white-space: nowrap;
                 overflow: hidden;
@@ -747,6 +895,10 @@ export default defineComponent({
                 font-size: 0.9rem;
                 text-align: center;
                 transition: 0.3s;
+
+                @media (max-width: 480px) {
+                    font-size: 0.8rem;
+                }
 
                 &:hover {
                     text-decoration: underline;

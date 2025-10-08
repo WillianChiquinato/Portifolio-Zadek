@@ -16,7 +16,7 @@
                     de trabalho em equipe e de alta produtividade. </p>
 
                 <div class="btnContextText">
-                    <button class="DownloadCV">Download CV</button>
+                    <button class="DownloadCV" @click="downloadCV">Download CV</button>
                 </div>
                 <div class="contexTextIconeMap is-flex is-align-items-center justify-content-start">
                     <i class="fas fa-map-marker-alt iconeMaps"></i>
@@ -41,7 +41,7 @@
 
                 <div class="mobile-only">
                     <div class="btnContextText">
-                        <button class="DownloadCV">Download CV</button>
+                        <button class="DownloadCV" @click="downloadCV">Download CV</button>
                     </div>
                     <div class="contexTextIconeMap is-flex is-align-items-center justify-content-start">
                         <i class="fas fa-map-marker-alt iconeMaps"></i>
@@ -72,6 +72,19 @@ export default defineComponent({
         ]
 
         return { sectionRef, isVisible, RedesSociaisValores }
+    },
+    methods: {
+        downloadCV() {
+            const fileUrl = '/Portifolio-Zadek/Willian_Chiquinato_CV.pdf';
+            window.open(fileUrl, '_blank');
+
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = 'Willian_Chiquinato_CV.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     }
 })
 </script>
@@ -138,7 +151,7 @@ export default defineComponent({
             margin-top: 1rem;
             margin-bottom: 1rem;
             border-radius: 10px;
-            box-shadow: -2px 10px 3px rgba(66, 117, 133, 0.336);
+            box-shadow: -2px 6px 3px rgba(66, 117, 133, 0.2);
             cursor: crosshair;
             transition: 0.5s;
 

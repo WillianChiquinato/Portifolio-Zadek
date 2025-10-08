@@ -102,6 +102,10 @@ import SiteCedihus3 from '@/assets/imagens/Cedihus3.png';
 import BullShit from '@/assets/imagens/BullShit1.png';
 import BullShit2 from '@/assets/imagens/BullShit2.png';
 import BullShit3 from '@/assets/imagens/BullShit3.png';
+import FolkLore1 from '@/assets/imagens/FolkLore1.png';
+import FolkLore2 from '@/assets/imagens/FolkLore2.png';
+import FolkLore4 from '@/assets/imagens/FolkLore4.jpeg';
+
 // Fotos pessoais.
 import WillFoto from '@/assets/imagens/persons/Will-Fotos.jpeg';
 import RenanFoto from '@/assets/imagens/persons/RenanFoto.jpg';
@@ -110,6 +114,7 @@ import JuanFoto from '@/assets/imagens/persons/JuanFoto.jpg';
 import VitorFoto from '@/assets/imagens/persons/VitorVentFoto.jpg';
 import EnzoFoto from '@/assets/imagens/persons/EnzoFoto.jpg';
 import LucasFoto from '@/assets/imagens/persons/LucasFoto.jpg';
+import SantosTech from '@/assets/imagens/persons/SantosTech.png';
 
 export default defineComponent({
     data() {
@@ -133,10 +138,16 @@ export default defineComponent({
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [
                         {
+                            id: 1,
+                            name: 'Programador Unity2D',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
+                        },
+                        {
                             id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Artista 2D, Animador e Game Designer',
+                            image: EnzoFoto,
+                            link: 'https://www.artstation.com/enzolonghi'
                         }
                     ]
                 },
@@ -165,22 +176,22 @@ export default defineComponent({
                 {
                     id: 3,
                     nome: 'Folklore: Cards Adventures',
-                    descricao: 'Descrição do Projeto X.',
-                    imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
+                    descricao: '"FolkLore: Cards Adventures" é um projeto desenvolvido com o objetivo de difundir a cultura brasileira e explorar a riqueza do nosso Folclore. O jogo esta sendo criado com apoio do Estado de São Paulo por meio da Lei Paulo Gustavo e encontra-se atualmente em fase de desenvolvimento. \n\nO jogador embarca em uma jornada para ajudar criaturas folclóricas e proteger a natureza, coletando cartas mágicas que concedem novas habilidades e poderes. \nOs cenários São inspirados na Floresta Amazônica e em outro ambientes tipicamente brasileiros, proporcionando uma experiência imersiva e educativa. \n\nO jogo é desenvolvido na Unity3D com C# e utiliza mecânicas de RPG, exploração e coleta de cartas, incentivando os jogadores a aprenderem sobre o folclore brasileiro enquanto se divertem. \n\nA proposta é alcançar o publico-alvo de crianças e adolescentes, aproximando-os das histórias e lendas do nosso país, promovendo a valorização da cultura nacional.',
+                    imagens: [FolkLore1, FolkLore2, FolkLore4],
                     trailerVideo: true,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    video: 'https://www.youtube.com/embed/dWSurtbnOxA',
                     envolvidos: [
                         {
                             id: 1,
-                            name: 'Desenvolvedor do ChatBot em Dart',
-                            image: fotoTestePreta,
-                            link: 'https://www.youtube.com/?themeRefresh=1'
+                            name: 'Desenvolvedor Unity3D',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
                         },
                         {
                             id: 2,
-                            name: 'Designer Gráfico',
-                            image: fotoTestePreta,
-                            link: 'https://www.behance.net/'
+                            name: 'Equipe Santos Tech',
+                            image: SantosTech,
+                            link: 'www.santos-tech.com/portfolio'
                         }
                     ]
                 },

@@ -475,7 +475,7 @@ export default defineComponent({
     width: 700px;
     height: 800px;
     max-width: 35%;
-    max-height: 85%;
+    max-height: 90%;
     position: fixed;
     left: 50%;
     top: 50%;
@@ -490,7 +490,7 @@ export default defineComponent({
 
     @media (max-width: 1366px) {
         max-width: 40%;
-        max-height: 82%;
+        max-height: 85%;
     }
 
     @media (max-width: 1125px) {
@@ -499,7 +499,7 @@ export default defineComponent({
     }
 
     @media (max-width: 768px) {
-        max-width: 90%;
+        max-width: 80%;
         max-height: 80%;
         width: 95vw;
         height: 90vh;
@@ -510,9 +510,9 @@ export default defineComponent({
     }
 
     @media (max-width: 480px) {
-        max-width: 95%;
-        max-height: 75%;
-        width: 98vw;
+        max-width: 85%;
+        max-height: 84%;
+        width: 95vw;
         height: 95vh;
         padding: 6px 10px;
         border-radius: 0.8rem;
@@ -572,7 +572,7 @@ export default defineComponent({
         transition: 0.3s;
 
         @media (max-width: 768px) {
-            top: -0.8rem;
+            top: -1rem;
             left: -0.8rem;
         }
 

@@ -1,14 +1,12 @@
 <template>
-  <main class="container is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+  <main class="is-flex is-flex-direction-column">
     <LoadingScreen :visible="loading" />
-    <div v-if="!loading" class="columns is-centered">
-      <div class="column">
-        <HeaderPage />
-        <HomePage />
-        <HardSoftSkills />
-        <Projetos />
-        <FooterProject />
-      </div>
+    <div v-if="!loading">
+      <HeaderPage />
+      <HomePage />
+      <HardSoftSkills />
+      <Projetos />
+      <FooterProject />
     </div>
   </main>
 </template>
@@ -46,5 +44,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style scoped></style>

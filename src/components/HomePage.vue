@@ -93,7 +93,6 @@ export default defineComponent({
 /* HomePage */
 .homePage {
     width: 100dvw;
-    margin-top: 10rem;
     padding: 2rem;
     border-bottom: solid 1px var(--color-branco);
     transform: translateY(50px);
@@ -144,7 +143,7 @@ export default defineComponent({
         }
 
         .DownloadCV {
-            color: var(--color-preto);
+            color: var(--color-backgroundBody);
             background-color: var(--color-primaria);
             font-size: clamp(2rem, 2.4vw, 2.6rem);
             padding: 1rem 3rem;

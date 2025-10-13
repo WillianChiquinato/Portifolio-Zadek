@@ -46,7 +46,7 @@ export default defineComponent({
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0d1117;
+    background-color: #02081F;
     /* cor de fundo */
     display: flex;
     flex-direction: column;

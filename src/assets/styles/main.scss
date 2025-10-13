@@ -14,15 +14,15 @@
 }
 
 .darkMode {
-  --color-preto: #b9b9b9;
+  --color-preto: #2c2c2c;
   --color-branco: #080808;
   --color-cinza: #353535;
-  --color-backgroundBody: #dbdbdb;
+  --color-backgroundBody: #e3e3e3;
   --color-primaria: #162d58;
   --color-secundaria: #182229;
   --color-header-hover: #27312e;
   --fonte-padrao: "Jua", sans-serif;
-  --color-FundoContainerProject: #bebebe;
+  --color-FundoContainerProject: #bfc2c3;
   --color-circulo: rgb(0, 75, 161);
   --color-circulo-bg: #8f8f8f;
 }
@@ -34,8 +34,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
-    width: 100%;
+  scroll-behavior: smooth;
 }
 
 body {

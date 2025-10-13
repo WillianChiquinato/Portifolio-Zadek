@@ -11,6 +11,7 @@ import SpotifyFrontEnd from '@/assets/imagens/SpotifyFEProject.png';
 import ChatBotDart from '@/assets/imagens/ChatDartProject.png';
 import BullShit from '@/assets/imagens/BullShit.png';
 import SiteCedihus from '@/assets/imagens/CedihusCapa.png';
+import HeronBespoke from '@/assets/imagens/HeronBespoke.jpeg';
 
 interface Projeto {
     id: number;
@@ -93,25 +94,32 @@ const projetos: Projeto[] = [
     },
     {
         id: 11,
+        name: 'Site Cedihus - Usp Ribeirão Preto',
+        status: 'Finalizado em 08/2025',
+        image: SiteCedihus,
+        descricao: ''
+    },
+    {
+        id: 12,
+        name: 'Heron Bespoke',
+        status: 'Em Desenvolvimento',
+        image: HeronBespoke,
+        descricao: ''
+    },
+    {
+        id: 13,
         name: 'Spotify - Front End',
         status: 'Finalizado em Imersão - Alura',
         image: SpotifyFrontEnd,
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     },
     {
-        id: 12,
+        id: 14,
         name: 'Chat BOT em Dart',
         status: 'Finalizado em 2 meses de 2024',
         image: ChatBotDart,
         descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB, Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.'
     },
-    {
-        id: 13,
-        name: 'Site Cedihus - Usp Ribeirão Preto',
-        status: 'Finalizado em 08/2025',
-        image: SiteCedihus,
-        descricao: ''
-    }
 ];
 
 export default projetos;

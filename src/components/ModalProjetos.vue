@@ -105,6 +105,9 @@ import BullShit3 from '@/assets/imagens/BullShit3.png';
 import FolkLore1 from '@/assets/imagens/FolkLore1.png';
 import FolkLore2 from '@/assets/imagens/FolkLore2.png';
 import FolkLore4 from '@/assets/imagens/FolkLore4.jpeg';
+import HeronBespoke1 from '@/assets/imagens/HeronBespokeFoto1.png';
+import HeronBespoke2 from '@/assets/imagens/HeronBespokeFoto2.png';
+import HeronBespoke3 from '@/assets/imagens/HeronBespokeFoto3.png';
 
 // Fotos pessoais.
 import WillFoto from '@/assets/imagens/persons/Will-Fotos.jpeg';
@@ -115,6 +118,7 @@ import VitorFoto from '@/assets/imagens/persons/VitorVentFoto.jpg';
 import EnzoFoto from '@/assets/imagens/persons/EnzoFoto.jpg';
 import LucasFoto from '@/assets/imagens/persons/LucasFoto.jpg';
 import SantosTech from '@/assets/imagens/persons/SantosTech.png';
+import PedroFoto from '@/assets/imagens/persons/Pedro.jpg';
 
 export default defineComponent({
     data() {
@@ -132,7 +136,7 @@ export default defineComponent({
                 {
                     id: 1,
                     nome: 'Lilith: Keys of Power',
-                    descricao: 'Um aplicativo de uma academia de bairro chamada de “Black Brothers”, Esta sendo desenvolvida em Flutter para os usuários e com o Admin do cliente em React.js na WEB.',
+                    descricao: 'A história se desenrola em um vasto império contruído dentro de uma montanha. O jogador acompanha Lilith, uma jovem determinada a derrubar o regime opressor após seu pai ser capturado. \n\nPara alcançar seu objetivo, ela se une a revolucionários e rebeldes, enfrentando desafios e descobrindo os segredos ocultos nas profundezas do império. \n\nCom estilo Pixel Art 2D, altamente detalhado e mecânicas de exploração inovadoras, este MetroidVania entrega uma jornada épica repleta de ação, mistério e reviravoltas...',
                     imagens: [fotoTestePreta, fotoTestePreta, fotoTestePreta],
                     trailerVideo: true,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
@@ -345,6 +349,44 @@ export default defineComponent({
                 },
                 {
                     id: 11,
+                    nome: 'Site Cedihus - USP',
+                    descricao: 'Foi desenvolvido um site para o Cedihus - USP, com o objetivo de fornecer informações sobre o centro de estudos e suas atividades. O site foi construído utilizando Wordpress, com um design responsivo e intuitivo, visando facilitar o acesso às informações pelos usuários e focando na acessibilidade e organizar dos materiais da OMS. \n\nO cliente queria um blog porem com a quantidade de informações nao poderia ser totalmente possivel essa ideia, entao fiz uma aba a parte sobre esse tópico.',
+                    imagens: [SiteCedihus, SiteCedihus2, SiteCedihus3],
+                    trailerVideo: false,
+                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor FullStack',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
+                        }
+                    ]
+                },
+                {
+                    id: 12,
+                    nome: 'Heron Bespoke - Companhia de Viagens',
+                    descricao: 'Uma equipe de viagens de Londres veio nos procurar para desenvolver um site que fosse simples, elegante e objetivo para iniciarmos as vendas e reservas, ou garantir algum investimento empresarial, com o intuito de mostrar os serviços e pacotes de viagens oferecidos pela empresa. Porem futuramente queremos aderir a técnica com Three.JS, com elegancia 3D e interatividade imersiva. \n\nO site foi desenvolvido utilizando React.js, autenticação nativa e servidor na AWS, com um design responsivo e moderno, visando proporcionar uma experiência agradável aos usuários.',
+                    imagens: [HeronBespoke1, HeronBespoke2, HeronBespoke3],
+                    trailerVideo: true,
+                    video: 'https://www.youtube.com/embed/QMzDT8kpvMk',
+                    envolvidos: [
+                        {
+                            id: 1,
+                            name: 'Desenvolvedor Front-End',
+                            image: WillFoto,
+                            link: 'www.linkedin.com/in/willianchiquinato'
+                        },
+                        {
+                            id: 2,
+                            name: 'Desenvolvedor Back-End',
+                            image: PedroFoto,
+                            link: 'www.linkedin.com/in/pedro-souza-09375a287'
+                        }
+                    ]
+                },
+                {
+                    id: 13,
                     nome: 'Spotify Clone - FrontEnd',
                     descricao: 'Foi desenvolvido a interface do Spotify, um software streamer de músicas, analizada a situação, construí uma versão do front-end em HTML5, CSS3 e Javascript...',
                     imagens: [Spotify, Spotify2, Spotify3],
@@ -360,26 +402,10 @@ export default defineComponent({
                     ]
                 },
                 {
-                    id: 12,
+                    id: 14,
                     nome: 'Chat Bot em Dart',
                     descricao: 'Foi desenvolvido um ChatBot pessoal que atende as suas perguntas pessoais, como o horario atual ou qual dia é hoje, um Bot criado com perguntas locais mas simulando assincronismo para "Informações externas" como banco de dados e APIs, aprendendo como manipular informações assincronas com Future e Stream, streams para manipular o tempo de execução do Bot para nao sobrecarregar, construtores e métodos para a criação da verificação de perguntas, assim fazendo uma estrutura para adicionar mais perguntas conforme os seus critérios...',
                     imagens: [ChatBotDart, ChatBotDart2, ChatBotDart3],
-                    trailerVideo: false,
-                    video: 'https://www.youtube.com/embed/iO_2BRpctj0',
-                    envolvidos: [
-                        {
-                            id: 1,
-                            name: 'Desenvolvedor FullStack',
-                            image: WillFoto,
-                            link: 'www.linkedin.com/in/willianchiquinato'
-                        }
-                    ]
-                },
-                {
-                    id: 13,
-                    nome: 'Site Cedihus - USP',
-                    descricao: 'Foi desenvolvido um site para o Cedihus - USP, com o objetivo de fornecer informações sobre o centro de estudos e suas atividades. O site foi construído utilizando Wordpress, com um design responsivo e intuitivo, visando facilitar o acesso às informações pelos usuários e focando na acessibilidade e organizar dos materiais da OMS. \n\nO cliente queria um blog porem com a quantidade de informações nao poderia ser totalmente possivel essa ideia, entao fiz uma aba a parte sobre esse tópico.',
-                    imagens: [SiteCedihus, SiteCedihus2, SiteCedihus3],
                     trailerVideo: false,
                     video: 'https://www.youtube.com/embed/iO_2BRpctj0',
                     envolvidos: [

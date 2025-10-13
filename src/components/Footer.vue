@@ -42,7 +42,7 @@ export default {
 
         button {
             background-color: var(--color-primaria);
-            color: var(--color-preto);
+            color: var(--color-backgroundBody);
             font-size: clamp(2rem, 3vw, 3rem);
             padding: clamp(0.5rem, 1vw, 1rem) clamp(2rem, 4vw, 4rem);
             border-radius: 2rem;

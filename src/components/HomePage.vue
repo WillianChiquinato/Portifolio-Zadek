@@ -25,10 +25,16 @@
             </div>
 
             <div class="contentVideo is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0"
+                <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
-                </iframe>
+                </iframe> -->
+
+                <div class="videoBackground">
+                    <div class="notificacaoEmBreve">
+                        <h3>Em breve com novidades!</h3>
+                    </div>
+                </div>
 
                 <div class="iconesRedesSociais is-flex is-justify-content-center is-align-items-center">
                     <a v-for="(RedesSociais, index) in RedesSociaisValores" :key="index" :href="RedesSociais.link"
@@ -234,6 +240,32 @@ export default defineComponent({
     display: none;
 }
 
+.videoBackground {
+    width: clamp(35rem, 45vw, 47rem);
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-backgroundBody);
+    border-radius: 15px;
+    border: solid 0.1px var(--color-branco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .notificacaoEmBreve {
+        background-color: var(--color-primaria);
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: solid 2px var(--color-branco);
+        box-shadow: -2px 6px 3px rgba(66, 117, 133, 0.2);
+        margin-bottom: 1rem;
+
+        h3 {
+            color: var(--color-backgroundBody);
+            font-size: clamp(1.5rem, 2vw, 2.5rem);
+            font-weight: bold;
+        }
+    }
+}
+
 @media (max-width: 1680px) {
     .homePage {
         margin-top: 6.3rem;
@@ -344,6 +376,21 @@ export default defineComponent({
     }
 }
 
+@media (max-width: 768px) {
+    .videoBackground {
+        width: 100%;
+        max-width: 500px;
+
+        .notificacaoEmBreve {
+            padding: 0.8rem 1.5rem;
+
+            h3 {
+                font-size: clamp(1.2rem, 1.5vw, 2rem);
+            }
+        }
+    }
+}
+
 @media (max-width: 450px) {
     .homePage {
         margin-top: 0.9rem;
@@ -409,6 +456,19 @@ export default defineComponent({
 
         img {
             width: 60%;
+        }
+    }
+
+    .videoBackground {
+        width: 100%;
+        max-width: 300px;
+
+        .notificacaoEmBreve {
+            padding: 0.3rem 1rem;
+
+            h3 {
+                font-size: clamp(0.9rem, 1.5vw, 2rem);
+            }
         }
     }
 }

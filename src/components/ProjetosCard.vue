@@ -3,14 +3,14 @@
         <img :src="projeto.image" :alt="projeto.name" :class="isMobile ? 'imagemProjectMobile' : 'imagemProject'" />
 
         <div v-if="isMobile" class="mobileContent">
-            <h2 :class="{ smallFont: index === 1 || index === 2 }">{{ projeto.name }}</h2>
+            <h2 :class="{ smallFont: index === 1 || index === 2 || index === 3 || index === 4 }">{{ projeto.name }}</h2>
             <h5>{{ projeto.status }}</h5>
             <span class="mobileDescription">{{ projeto.descricao }}</span>
             <button class="saberMaisProjectMobile" @click="openModal(projeto)">Clique para saber mais</button>
         </div>
 
         <template v-else>
-            <h2 :class="{ smallFont: index === 1 || index === 2 || index === 4 }">{{ projeto.name }}</h2>
+            <h2 :class="{ smallFont: index === 1 || index === 2 || index === 3 || index === 4 }">{{ projeto.name }}</h2>
             <h5>{{ projeto.status }}</h5>
             <button class="saberMaisProject" @click="openModal(projeto)">Clique para saber mais</button>
         </template>

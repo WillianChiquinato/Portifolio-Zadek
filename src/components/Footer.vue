@@ -3,8 +3,8 @@
         <div class="footerContent">
             <img src="../assets/imagens/LogoTipoFooter.png" alt="LogoTipoFooter">
             <button class="faleComigoBtn" @click="handleClick">Fale Comigo</button>
-            <h6>@Copyright 2025</h6>
-            <span>Direitos autorais reservados, by Willian de sena chiquinato</span>
+            <h6>@Copyright 2026 - 2027</h6>
+            <span>Direitos autorais reservados, by Willian de Sena Chiquinato</span>
         </div>
     </div>
 </template>

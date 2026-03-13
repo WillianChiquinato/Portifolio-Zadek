@@ -43,10 +43,10 @@ export default defineComponent({
     },
     computed: {
         fullStackProjects() {
-            return this.listaProjetos.slice(8, 14);
+            return this.listaProjetos.slice(10, 19);
         },
         gameDevProjects() {
-            return this.listaProjetos.slice(0, 8);
+            return this.listaProjetos.slice(0, 10);
         },
         currentProjects() {
             return this.isFullStackActive ? this.fullStackProjects : this.gameDevProjects;

@@ -12,19 +12,19 @@
                 <div class="gridContent">
                     <div v-for="(circle, index) in circles" :key="index"
                         class="contentHardSkills is-flex is-flex-direction-column is-align-items-center">
-                        <span class="NomeContent">{{ circle.nome }}</span>
-                        <div class="circle">
-                            <svg class="progress-ring" :width="circleSize" :height="circleSize">
-                                <!-- Círculo de fundo -->
-                                <circle class="progress-ring-circle-base" stroke="#e6e6e6" stroke-width="12"
-                                    fill="transparent" :r="circleRadius" :cx="circleCenter" :cy="circleCenter" />
-                                <!-- Círculo de progresso -->
-                                <circle ref="progressRingFullStack" class="progress-ring-circle" stroke="green"
-                                    stroke-width="12" fill="transparent" :r="circleRadius" :cx="circleCenter"
-                                    :cy="circleCenter" :style="getCircleStyle(circle.numero)" />
-                            </svg>
-                            <img class="progress-image" :src="circle.imagem" alt="IconCircle" />
-                            <div class="progress-text">{{ circle.numero }}%</div>
+                        <div class="skillCard">
+                            <div class="skillHeader">
+                                <img class="skillImage" :src="circle.imagem" alt="IconSkill" />
+                                <div class="skillMeta">
+                                    <span class="NomeContent">{{ circle.nome }}</span>
+                                    <span class="skillLevel">{{ getLevelLabel(circle.numero) }}</span>
+                                </div>
+                                <span class="progress-text">{{ circle.numero }}%</span>
+                            </div>
+                            <div class="segmentBar" aria-hidden="true">
+                                <span v-for="segment in 10" :key="`full-${index}-${segment}`" class="segment"
+                                    :class="{ filled: segment <= getFilledSegments(circle.numero) }"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -35,19 +35,19 @@
                 <div class="gridContent">
                     <div v-for="(circle, index) in circlesGameDev" :key="index"
                         class="contentHardSkills is-flex is-flex-direction-column is-align-items-center">
-                        <span class="NomeContent">{{ circle.nome }}</span>
-                        <div class="circle">
-                            <svg class="progress-ring" :width="circleSize" :height="circleSize">
-                                <!-- Círculo de fundo -->
-                                <circle class="progress-ring-circle-base" stroke="#e6e6e6" stroke-width="12"
-                                    fill="transparent" :r="circleRadius" :cx="circleCenter" :cy="circleCenter" />
-                                <!-- Círculo de progresso -->
-                                <circle ref="progressRingGameDev" class="progress-ring-circle" stroke="green"
-                                    stroke-width="12" fill="transparent" :r="circleRadius" :cx="circleCenter"
-                                    :cy="circleCenter" :style="getCircleStyle(circle.numero)" />
-                            </svg>
-                            <img class="progress-image" :src="circle.imagem" alt="IconCircle" />
-                            <div class="progress-text">{{ circle.numero }}%</div>
+                        <div class="skillCard">
+                            <div class="skillHeader">
+                                <img class="skillImage" :src="circle.imagem" alt="IconSkill" />
+                                <div class="skillMeta">
+                                    <span class="NomeContent">{{ circle.nome }}</span>
+                                    <span class="skillLevel">{{ getLevelLabel(circle.numero) }}</span>
+                                </div>
+                                <span class="progress-text">{{ circle.numero }}%</span>
+                            </div>
+                            <div class="segmentBar" aria-hidden="true">
+                                <span v-for="segment in 10" :key="`game-${index}-${segment}`" class="segment"
+                                    :class="{ filled: segment <= getFilledSegments(circle.numero) }"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -79,25 +79,25 @@ import { defineComponent, ref } from 'vue'
 import { useIntersection } from '@/composable/intersectionObserver'
 
 const circulosFullStack = [
-    { nome: "Node.js", imagem: nodeIcon, numero: 80 },
+    { nome: "Vue.js", imagem: vueIcon, numero: 80 },
+    { nome: "TypeScript", imagem: typeScript, numero: 80 },
+    { nome: ".NET Core", imagem: dotnet, numero: 75 },
     { nome: "React.js", imagem: reactIcon, numero: 70 },
-    { nome: "Vue.js", imagem: vueIcon, numero: 65 },
+    { nome: "Node.js", imagem: nodeIcon, numero: 65 },
     { nome: "Git/Github", imagem: git, numero: 65 },
     { nome: "SQL", imagem: sql, numero: 65 },
-    { nome: ".NET Core", imagem: dotnet, numero: 50 },
-    { nome: "Dart", imagem: dart, numero: 50 },
-    { nome: "Flutter", imagem: flutter, numero: 50 },
-    { nome: "TypeScript", imagem: typeScript, numero: 50 },
-    { nome: "Docker", imagem: docker, numero: 30 },
-    { nome: "Azure Cloud", imagem: azure, numero: 10 }
+    { nome: "Dart", imagem: dart, numero: 40 },
+    { nome: "Flutter", imagem: flutter, numero: 40 },
+    { nome: "Azure Cloud", imagem: azure, numero: 30 },
+    { nome: "Docker", imagem: docker, numero: 20 },
 ]
 
 const circulosGameDev = [
     { nome: "Unity2D", imagem: unity2d, numero: 90 },
     { nome: "C# (POO)", imagem: csharp, numero: 80 },
     { nome: "Unity3D", imagem: unity3d, numero: 70 },
-    { nome: "Packages", imagem: packageManager, numero: 50 },
-    { nome: "IA", imagem: ia, numero: 40 },
+    { nome: "Packages", imagem: packageManager, numero: 60 },
+    { nome: "IA", imagem: ia, numero: 50 },
     { nome: "C++", imagem: cplusplus, numero: 20 }
 ]
 
@@ -106,69 +106,19 @@ export default defineComponent({
     data() {
         return {
             circles: circulosFullStack,
-            circlesGameDev: circulosGameDev,
-            circleSize: 216, // Tamanho base do SVG
-            strokeWidth: 12
+            circlesGameDev: circulosGameDev
         };
     },
-    computed: {
-        circleRadius() {
-            return (this.circleSize - this.strokeWidth) / 2;
-        },
-        circleCenter() {
-            return this.circleSize / 2;
-        },
-        circumference() {
-            return 2 * Math.PI * this.circleRadius;
-        }
-    },
     methods: {
-        getCircleStyle(percent: number) {
-            const offset = this.circumference - (percent / 100) * this.circumference;
-            return {
-                strokeDasharray: `${this.circumference} ${this.circumference}`,
-                strokeDashoffset: `${offset}`
-            };
+        getFilledSegments(percent: number) {
+            return Math.max(1, Math.min(10, Math.round(percent / 10)));
         },
 
-        updateCircleSize() {
-            const width = window.innerWidth;
-            
-            if (width < 380) {
-                this.circleSize = 110;
-                this.strokeWidth = 12;
-            }
-            else if (width < 768) {
-                this.circleSize = 140;
-                this.strokeWidth = 12;
-            } else if (width < 1024) {
-                this.circleSize = 160;
-                this.strokeWidth = 12;
-            } else if (width < 1680) {
-                this.circleSize = 170;
-                this.strokeWidth = 12;
-            } else {
-                this.circleSize = 216;
-                this.strokeWidth = 12;
-            }
-        },
-        
-        handleResize() {
-            this.updateCircleSize();
-            this.$nextTick(() => {
-                // Forçar re-renderização dos círculos
-                this.circles = [...this.circles];
-                this.circlesGameDev = [...this.circlesGameDev];
-            });
+        getLevelLabel(percent: number) {
+            if (percent >= 80) return 'Avancado';
+            if (percent >= 60) return 'Intermediario';
+            return 'Base';
         }
-    },
-    mounted() {
-        this.updateCircleSize();
-        
-        window.addEventListener('resize', this.handleResize);
-    },
-    beforeUnmount() {
-        window.removeEventListener('resize', this.handleResize);
     },
     setup() {
         const sectionRef = ref<HTMLElement | null>(null)
@@ -213,13 +163,17 @@ export default defineComponent({
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 2rem;
-    gap: 0.6rem;
+    gap: 0.8rem;
 
     .gridContent {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 0.5rem;
+        padding: 0 1.1rem 1.1rem;
+        box-sizing: border-box;
     }
 
     .FullStackContainer {
@@ -240,54 +194,83 @@ export default defineComponent({
         }
 
         .NomeContent {
-            font-size: clamp(1.6rem, 1.8vw, 2.2rem);
+            font-size: clamp(1.1rem, 1.2vw, 1.45rem);
             color: var(--color-secundaria);
         }
 
-        .circle {
-            position: relative;
-            display: inline-block;
-            margin: 5px 20px 20px 20px;
-            text-align: center;
-            z-index: 10;
-            transition: all 0.3s ease;
+        .skillCard {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            padding: 0.9rem;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.06));
+            transition: transform 0.3s ease, border-color 0.3s ease;
 
             &:hover {
-                transform: scale(1.05);
+                transform: translateY(-4px);
+                border-color: rgba(255, 255, 255, 0.4);
             }
         }
 
-        .progress-ring {
-            transform: rotate(-90deg);
+        .skillHeader {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
-        .progress-ring-circle-base {
-            stroke: var(--color-circulo-bg);
+        .skillImage {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: cover;
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 0.2rem;
         }
 
-        .progress-ring-circle {
-            stroke: var(--color-circulo);
-            transition: stroke-dashoffset 1.5s ease;
+        .skillMeta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.3rem;
+            flex: 1;
         }
 
-        .progress-image {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90px;
-            height: 90px;
-            border-radius: 30%;
+        .skillLevel {
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            color: var(--color-cinza);
+            padding: 0.15rem 0.5rem;
         }
 
         .progress-text {
-            position: absolute;
-            top: 65%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 36px;
+            font-size: 1.15rem;
             font-weight: bold;
             color: var(--color-secundaria);
+            min-width: 52px;
+            text-align: right;
+        }
+
+        .segmentBar {
+            margin-top: 0.9rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+            gap: 0.35rem;
+        }
+
+        .segment {
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            transition: background-color 0.5s ease, transform 0.3s ease;
+        }
+
+        .segment.filled {
+            background: linear-gradient(90deg, var(--color-circulo), var(--color-primaria));
+            transform: scaleY(1.08);
         }
     }
 }
@@ -309,8 +292,9 @@ export default defineComponent({
         margin-top: 1.4rem;
 
         .gridContent {
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 0.7rem;
+            padding: 0 0.9rem 0.9rem;
         }
 
         .FullStackContainer {
@@ -323,20 +307,20 @@ export default defineComponent({
             }
 
             .NomeContent {
-                font-size: clamp(1.3rem, 1.5vw, 2rem);
+                font-size: clamp(1rem, 1.2vw, 1.35rem);
             }
 
-            .circle {
-                margin: 1px 15px 15px 15px;
-            }
-
-            .progress-image {
-                width: 60px;
-                height: 60px;
+            .skillImage {
+                width: 38px;
+                height: 38px;
             }
 
             .progress-text {
-                font-size: 1.2rem;
+                font-size: 1rem;
+            }
+
+            .segment {
+                height: 9px;
             }
         }
     }
@@ -354,58 +338,62 @@ export default defineComponent({
     }
 }
 
-// Adicione media queries para ajustar o tamanho dos círculos
 @media (max-width: 768px) {
-    :deep(.progress-image) {
-        width: 50px !important;
-        height: 50px !important;
+    .HardSkillsContainer {
+        .gridContent {
+            grid-template-columns: 1fr;
+            padding: 0 0.75rem 0.8rem;
+        }
     }
 }
 
 @media (max-width: 480px) {
     .HardSkillsContainer {
         .gridContent {
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.5rem;
+            gap: 1rem;
         }
 
         .FullStackContainer {
-            .progress-image {
-                width: 35px;
-                height: 35px;
+            .skillCard {
+                padding: 0.75rem;
+            }
+
+            .skillImage {
+                width: 34px;
+                height: 34px;
             }
 
             .progress-text {
                 font-size: 0.9rem;
+                min-width: 46px;
+            }
+
+            .segment {
+                height: 8px;
             }
         }
     }
 }
 
-@media (max-width: 380px) {
-    :deep(.progress-image) {
-        width: 40px !important;
-        height: 40px !important;
-    }
-
+@media (max-width: 390px) {
     .HardSkillsContainer {
         .gridContent {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 0.3rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 0 0.45rem 0.6rem;
         }
 
         .FullStackContainer {
-            .progress-image {
-                width: 25px;
-                height: 25px;
+            .skillLevel {
+                font-size: 0.65rem;
             }
 
             .progress-text {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
 
-            .circle {
-                margin: 1px 10px 10px 10px;
+            .segmentBar {
+                gap: 0.25rem;
             }
         }
     }

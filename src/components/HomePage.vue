@@ -9,11 +9,14 @@
                 <h2 class="contentTextTitle">Full Stack & Game Developer</h2>
                 <span class="contextTextSubTitle">"Fullstack por essência - Game dev por paixão"</span>
 
-                <p>Atualmente, curso Jogos Digitais na FIAP (modalidade EAD) e Análise e Desenvolvimento de Sistemas na
-                    FAM (presencial, período noturno). Tenho familiaridade com ferramentas como Android Studio, Power
-                    BI, Excel, VS Code e Figma, utilizadas no desenvolvimento de aplicações e interfaces. Possuo
-                    capacidade de gerenciar projetos de forma autônoma, além de colaborar de maneira eficaz em ambientes
-                    de trabalho em equipe e de alta produtividade. </p>
+                <p>
+                Desenvolvedor FullStack formado em Jogos Digitais pela FIAP e em Análise e Desenvolvimento de Sistemas pela FAM. 
+                Sou apaixonado por estrutura de sistemas, resolução de problemas e experiências digitais — especialmente 
+                projetos com elementos de gamificação e games.
+
+                Atualmente atuo na SMIT – Soluções Mobile e Inovações Tecnológicas como desenvolvedor FullStack em um 
+                E-Commerce, trabalhando tanto na implantação quanto na sustentação da plataforma.
+                </p>
 
                 <div class="btnContextText">
                     <button class="DownloadCV" @click="downloadCV">Download CV</button>

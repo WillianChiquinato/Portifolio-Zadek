@@ -3,7 +3,7 @@
         <img :src="projeto.image" :alt="projeto.name" :class="isMobile ? 'imagemProjectMobile' : 'imagemProject'" />
 
         <div v-if="isMobile" class="mobileContent">
-            <h2 :class="{ smallFont: index === 1 || index === 2 || index === 3 || index === 4 }">{{ projeto.name }}</h2>
+            <h2>{{ projeto.name }}</h2>
             <h5>{{ projeto.status }}</h5>
             <span class="mobileDescription">{{ projeto.descricao }}</span>
             <button class="saberMaisProjectMobile" @click="openModal(projeto)">Clique para saber mais</button>
@@ -184,6 +184,14 @@ export default defineComponent({
                 .saberMaisProjectMobile {
                     font-size: clamp(1rem, 2.8vw, 1.3rem);
                     padding: 0.8rem 0rem;
+                }
+            }
+
+            @media (max-width: 768px)
+            {
+                .smallFont {
+                    min-width: 60%;
+                    font-size: clamp(1.6rem, 4vw, 2rem) !important;
                 }
             }
 

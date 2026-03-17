@@ -734,7 +734,7 @@ export default defineComponent({
         border: solid 1px rgba(0, 0, 0, 0.2);
         background: rgba(255, 255, 255, 0.85);
         color: #1e2a28;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: 700;
         border-radius: 50%;
         cursor: pointer;
@@ -755,6 +755,14 @@ export default defineComponent({
     height: 100%;
     overflow-y: auto;
     padding: 0.2rem 0.4rem 0.2rem;
+    
+    // Ocultar scrollbar mantendo funcionalidade
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     @media (max-width: 768px) {
         padding: 0;
@@ -824,14 +832,6 @@ export default defineComponent({
     }
 }
 
-.modal-content::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.24);
-    border-radius: 999px;
-}
 
 .slider {
     background: #0e1a17;
@@ -941,14 +941,20 @@ export default defineComponent({
 
         .slider-frame,
         .slider-image {
-            min-height: 120px;
-            max-height: 400px;
+            width: 100%;
+            min-height: 150px;
+            max-height: 600px;
+        }
+
+        .slider-shell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2rem;
         }
 
         .slider-nav {
-            font-size: 0.7rem;
-            height: 2rem;
-            border-radius: 0.4rem;
+            display: none;
         }
     }
 }
